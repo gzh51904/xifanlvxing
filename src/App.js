@@ -1,21 +1,93 @@
-import React from 'react';
-import {Route} from 'react-router-dom'
-import './App.css';
 
+import React, { Component } from 'react'
+import { Switch,Route,Redirect,withRouter } from 'react-router-dom'
+import './iconfont/iconfont.css'
+import './css/app.css'
+import './App.css';
 //引入页面
 import detail from './pages/detail/detail'
+import Home from './pages/Home/index'
+import Bourn from './pages/Bourn'
+import Consult from './pages/Consult'
+import Mine from './pages/Mine'
 
 
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      nav:[
+        {
+          name: 'Home',
+          path: '/home',
+          icon: 'home',
+          title: '首页',
+          iconfont: 'iconfont icon icon-shouye'
+        },{
+          name: 'Bourn',
+          path: '/bourn',
+          icon: 'bourn',
+          title: '目的地',
+          iconfont: 'iconfont icon icon-mudedi'
+        },{
+          name: 'Consult',
+          path: '/consult',
+          icon: 'consult',
+          title: '咨询',
+          iconfont: 'iconfont icon icon-xiaoxi'
+        },{
+          name: 'Mine',
+          path: '/mine',
+          icon: 'mine',
+          title: '我的',
+          iconfont: 'iconfont icon icon-wode'
+        },
+      ]
+    };
 
-class App extends React.Component{
+    this.goto = this.goto.bind(this)
+  }
+  goto(path){
+    let {history} = this.props
+    console.log(path);
+    history.push(path);
+  }
   render() {
-      return (
-          <div className="App">
-              <Route path="/detail" component={detail}/>
-              {/*<Route component={detail}></Route>*/}
-          </div>
-      );
+    // console.log(this.props)
+    return (
+      <div id="root">
+        <div className="main">
+            <Switch>
+            <Route path="/home" component={Home}/>
+            <Route path="/bourn" component={Bourn}/>
+            <Route path="/consult" component={Consult}/>
+            <Route path="/mine" component={Mine}/>
+            <Route path="/detail" component={detail}/>
+            <Route path="/404" render={()=><div>oh no 404</div>}/>
+            <Redirect from="/" to="/home" exact/>
+            <Redirect from="/*" to="/404"/>
+          </Switch>
+          
+        </div>
+        <div className="footer" >
+          <ul>
+            {
+              this.state.nav.map(item=>{
+                return <li key={item.name} onClick={this.goto.bind(this,item.path)}>
+                    <div className="f_li">
+                      <i className={item.iconfont}></i>
+                      <span>{item.title}</span>
+                    </div>
+                </li>
+              })
+            }
+          </ul>
+        </div>
+      </div>
+    );
   }
 }
 
-export default App;
+App = withRouter(App)
+
+export default App
