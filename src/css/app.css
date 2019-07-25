@@ -13,6 +13,7 @@ html {
 
 .main {
     flex: 1;
+    overflow: auto;
 }
 
 .footer {
@@ -33,6 +34,7 @@ html {
     font-weight: 600;
     color: #ccc;
 }
+
 .footer ul li {
     width: 25%;
     height: 100%;
@@ -42,7 +44,8 @@ html {
     font-weight: 600;
     color: rgb(104, 116, 196);
 }
-.footer ul li:hover .icon{
+
+.footer ul li:hover .icon {
     font-weight: 600;
     color: rgb(104, 116, 196);
 }
@@ -59,3 +62,8 @@ html {
 .f_li {
     font-size: 12px;
 }
+
+/* 公共 */
+/* .flexCon{
+    display: flex;
+} */

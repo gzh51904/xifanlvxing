@@ -3,7 +3,7 @@ import { Switch,Route,Redirect,withRouter } from 'react-router-dom'
 import './iconfont/iconfont.css'
 import './css/app.css'
 
-import Home from './pages/Home/index'
+import Home from './pages/Home/'
 import Bourn from './pages/Bourn'
 import Consult from './pages/Consult'
 import Mine from './pages/Mine'
