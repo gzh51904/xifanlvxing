@@ -5,8 +5,10 @@ import Carousel from './carousel/carousel '
 import Schedule from './schedule/schedule'
 import Group from './group/group'
 import Footer from './footer/footer'
-
+import Description from "./description/description";
+import Outline from "./outline/outline";
 import './detail.scss'
+
 
 class detail extends React.Component {
     constructor() {
@@ -37,6 +39,10 @@ class detail extends React.Component {
                     <Schedule></Schedule>
                     {/*    团购*/}
                     <Group/>
+                    {/*    推荐*/}
+                    <Description/>
+                    {/*    行程概要*/}
+                    <Outline/>
                 </div>
                 {/*    底部*/}
                 <Footer></Footer>

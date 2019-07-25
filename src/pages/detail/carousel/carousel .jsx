@@ -1,3 +1,5 @@
+//轮播图
+
 import React from 'react'
 import {Carousel, WingBlank} from 'antd-mobile';
 import './carousel.scss'

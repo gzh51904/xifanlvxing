@@ -10,7 +10,7 @@ import Home from './pages/Home/index'
 import Bourn from './pages/Bourn'
 import Consult from './pages/Consult'
 import Mine from './pages/Mine'
-
+import Login from './pages/Login/index'
 
 class App extends Component {
   constructor() {
@@ -63,6 +63,7 @@ class App extends Component {
             <Route path="/consult" component={Consult}/>
             <Route path="/mine" component={Mine}/>
             <Route path="/detail" component={detail}/>
+            <Route path="/login" component={Login}/>
             <Route path="/404" render={()=><div>oh no 404</div>}/>
             <Redirect from="/" to="/home" exact/>
             <Redirect from="/*" to="/404"/>

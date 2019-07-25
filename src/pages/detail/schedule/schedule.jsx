@@ -1,3 +1,5 @@
+//行程
+
 import React from 'react'
 import './schedule.scss'
 import {Modal, List, Button, WhiteSpace, WingBlank, Icon} from 'antd-mobile';
@@ -39,14 +41,14 @@ class schedule extends React.Component {
                         width: '20px',
                         height: '20px',
                         position: 'relative',
-                        top: '4px',
+                        top: '-1px',
                         marginRight: '2px'
                     }}/><span>出发地</span><span className="schedule_place">大阪</span></div>
                     <div className="schedule_go"><img src="img/xialuo.png" alt="" style={{
                         width: '20px',
                         height: '20px',
                         position: 'relative',
-                        top: '4px',
+                        top: '-1px',
                         marginRight: '2px'
                     }}/><span>结束地</span><span className="schedule_place">大阪</span></div>
                 </div>
@@ -62,7 +64,7 @@ class schedule extends React.Component {
                             // alert('afterClose');
                         }}
                     >
-                        <List renderHeader={() => <div>服务说明</div>} className="popup-list">
+                        <List renderHeader={() => <div>服务说明<Icon type="cross-circle" className="close" onClick={this.onClose('modal')}/> </div>} className="popup-list">
 
                             {['畅销行程'].map((i, index) => (
                                 <List.Item key={index}>{i}
