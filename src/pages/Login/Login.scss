@@ -65,7 +65,7 @@ html, body {
         .login_content{
             width:100%;
             padding:68px 38px 0;
-            position: absolute;
+            // position: absolute;
             .login_title{
                 font-size: 20px;
                 margin-bottom:0;
@@ -81,44 +81,52 @@ html, body {
                     border:1px #eee solid;
                     border-radius: 6px;
                 }
-                .username{
+                .username,.logMobile{
                     margin-top:30px;
                     padding:7px 10px;
                 }
-                .forget,.code{
-                    padding-left:8px;
-                    position:absolute;
-                    width:72px;
-                    right:0px;
-                    bottom:10px;
-                    .findBtn,.codeBtn{
-                        height: 40px;
-                        width:64px;
-                        text-align: center;
-                        line-height: 40px;
-                        span{
-                            font-size:12px;
-                            color:#4bb1f5; 
-                        }  
-                    }
-                }
-                
-                .forget::before{
-                    content:'|';
-                    display:block;
-                    // height: 36px;
-                    // width:2px;
-                    // color:#C4C4C4;
-                    // z-index: 2;
-                    position: absolute;
-                    top:11px;
-                    left:4px;
-                }
-                .password{
+                .password,.mobileCode{
                     margin:10px 0px;
-                    padding:7px 72px 7px 10px;
+                    padding:7px 70px 7px 10px;
                 }
-                
+                .commonLogin{
+                    position: relative;
+                    .forget,.code{
+                        padding-left:8px;
+                        position:absolute;
+                        width:72px;
+                        right:0px;
+                        bottom:10px;
+                        .findBtn,.codeBtn{
+                            height: 40px;
+                            width:64px;
+                            text-align: center;
+                            line-height: 40px;
+                            span{
+                                font-size:12px;
+                                color:#4bb1f5; 
+                            }  
+                        }
+                        .codeBtn{
+                            width:68px;
+                        }
+                    }
+                    .code{
+                        width:76px;
+                    }
+                    .forget::before    {
+                        content:'|';
+                        display:block;
+                        // height: 36px;
+                        // width:2px;
+                        // color:#C4C4C4;
+                        // z-index: 2;
+                        position: absolute;
+                        top:11px;
+                        left:4px;
+                    }
+                } 
+               
                 .loginBtn{
                     background:#399ef6;
                     color:#fff;
