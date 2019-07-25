@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavBar, Icon} from 'antd-mobile';
+import {NavBar, Icon,Popover} from 'antd-mobile';
 
 import Carousel from './carousel/carousel '
 import Schedule from './schedule/schedule'
@@ -7,14 +7,32 @@ import Group from './group/group'
 import Footer from './footer/footer'
 import Description from "./description/description";
 import Outline from "./outline/outline";
+import SchDetail from  './sch_detail/sch_detail'
+import Price from  './pricedetail/price'
 import './detail.scss'
+const Item = Popover.Item;
 
 
 class detail extends React.Component {
     constructor() {
         super()
+        this.state = {
+            visible: true,
+            selected: '',
+        };
     }
-
+    onSelect = (opt) => {
+        // console.log(opt.props.value);
+        this.setState({
+            visible: false,
+            selected: opt.props.value,
+        });
+    };
+    handleVisibleChange = (visible) => {
+        this.setState({
+            visible,
+        });
+    };
     render() {
         return (
             <div id="detail">
@@ -25,10 +43,41 @@ class detail extends React.Component {
                         icon={<Icon type="left"/>}
                         onLeftClick={() => console.log('onLeftClick')}
                         rightContent={[
-                            <Icon key="1" type="ellipsis" className="right_more"/>,
+
                         ]}
-                    >
-                        <div className="title_content">(5天)【经典游】日本大阪+京都+神户+奈良5日游 清水寺+伏见稻荷大社+奈良公园+有马温泉+六甲山夜景</div>
+                        >
+                        <Popover
+                            // overlayClassName="fortest"
+                            overlayStyle={{ color: 'currentColor' }}
+                            // visible={this.state.visible}
+                            overlay={[
+                                (<div key="3" className="sanjiaoxing"></div>),
+                                (<Item key="4" value="scan"  data-seed="logId"><img src="img/dhome.png" alt=""/>首页</Item>),
+                                (<Item key="5" value="special"  style={{ whiteSpace: 'nowrap' }}><img src="img/dloc.png" alt=""/>目的地</Item>),
+                                (<Item key="6" value="button ct" >
+                                    <span style={{ marginRight: 5 }}><img src="img/duser.png" alt=""/>个人中心</span>
+                                </Item>),
+                                (<Item key="7" value="special"  style={{ whiteSpace: 'nowrap' }}><img src="img/dsc.png" alt=""/>我的收藏</Item>)
+                            ]}
+                            align={{
+                                overflow: { adjustY: 0, adjustX: 0 },
+                                offset: [-10, 0],
+                            }}
+                            onVisibleChange={this.handleVisibleChange}
+                            onSelect={this.onSelect}
+                        >
+                            <div style={{
+                                height: '100%',
+                                padding: '0 15px',
+                                marginRight: '-15px',
+                                display: 'flex',
+                                alignItems: 'center',
+                            }}
+                            >
+                                <Icon key="1" type="ellipsis" className="right_more"/>
+                            </div>
+                        </Popover>
+                        <div className="title_content" key="124">(5天)【经典游】日本大阪+京都+神户+奈良5日游 清水寺+伏见稻荷大社+奈良公园+有马温泉+六甲山夜景</div>
                     </NavBar>
                 </header>
                 {/*内容*/}
@@ -43,6 +92,10 @@ class detail extends React.Component {
                     <Description/>
                     {/*    行程概要*/}
                     <Outline/>
+                    {/*    行程详情*/}
+                    <SchDetail/>
+                    {/*    费用明细*/}
+                    <Price/>
                 </div>
                 {/*    底部*/}
                 <Footer></Footer>

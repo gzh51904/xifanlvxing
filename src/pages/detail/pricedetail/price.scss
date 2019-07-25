@@ -1,0 +1,72 @@
+.nosatisfied{
+  color: #c1c1c1;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px 0;
+  span:nth-child(2){
+    color: #399ef6;
+    margin-left: 2px;
+  }
+}
+.price_detail{
+  background: #fff;
+  padding: 0 16px;
+  .title{
+    padding-top: 18px;
+    text-align: center;
+    margin-bottom: 26px;
+  }
+  .price_sm{
+    padding: 12px 0 14px 0;
+    border-bottom: 1px solid #ccc;
+    .home_price{
+      margin-top: 20px;
+      margin-left: 20px;
+      display: flex;
+      justify-content: space-around;
+      .item{
+        text-align: center;
+        font-weight: 400;
+        padding-right: 22px;
+        box-sizing: border-box;
+        border-right: 1px solid #ddd;
+        .t{
+          font-size: 12px;
+          color: #989898;
+        }
+        .b{
+          font-size: 12px;
+          color: #fb605d;
+        }
+      }
+      .item:nth-last-child(1){
+        border-right: 0;
+      }
+    }
+    .price_sm_info{
+      color: #3e3e3e;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 18px;
+      margin-top: 5px;
+    }
+  }
+  .pull_show_con{
+    padding: 15px 0;
+    font-weight: 400;
+    font-size: 13px;
+    color: #969799;
+    line-height: 19.5px;
+  }
+
+}
+.am-accordion .am-accordion-item .am-accordion-header{
+  font-size: 14px;
+  padding-left: 0;
+  color: #323233;
+  font-weight: 400;
+}
+.notice_bottom{
+  margin-top: 12px;
+}

@@ -2,26 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc1c9496-538d-4439-831a-ce4ace95abc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/Login.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/detail/description/description.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/detail/description/description.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/detail/outline/outline.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/detail/outline/outline.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/detail/pricedetail/price.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/detail/pricedetail/price.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-overrides.js" beforeDir="false" afterPath="$PROJECT_DIR$/config-overrides.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/carousel/carousel .jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/carousel/carousel .jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/detail/carousel/carousel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/carousel/carousel.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/detail/detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/detail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/footer/footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/footer/footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/group/group.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/group/group.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/group/group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/group/group.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/schedule/schedule.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/schedule/schedule.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/schedule/schedule.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/schedule/schedule.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/detail/detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/detail.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,22 +26,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-              <folding>
-                <element signature="e#193#235#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="129">
+              <caret line="76" column="83" selection-start-line="76" selection-start-column="73" selection-end-line="76" selection-end-column="83" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -59,47 +38,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config-overrides.js">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+            <state relative-caret-position="224">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/pages/detail/pricedetail/price.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="70" column="19" lean-forward="true" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/detail/pricedetail/price.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="952">
+              <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+              <folding>
+                <element signature="e#8#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.scss">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+            <state relative-caret-position="241">
+              <caret line="105" column="19" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Login/index.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/detail/carousel/carousel.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Login/Login.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1232">
-              <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+            <state relative-caret-position="-168">
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -119,10 +103,8 @@
         <option value="$PROJECT_DIR$/src/pages/detail/Carousel/carousel.css" />
         <option value="$PROJECT_DIR$/src/pages/detail/Carousel/Carousel .jsx" />
         <option value="$PROJECT_DIR$/src/pages/detail/Carousel/carousel.scss" />
-        <option value="$PROJECT_DIR$/src/pages/detail/carousel/carousel.scss" />
         <option value="$PROJECT_DIR$/src/pages/detail/group/group.css" />
         <option value="$PROJECT_DIR$/src/pages/detail/detail.css" />
-        <option value="$PROJECT_DIR$/src/pages/detail/detail.scss" />
         <option value="$PROJECT_DIR$/src/pages/detail/footer/footer.scss" />
         <option value="$PROJECT_DIR$/src/pages/detail/schedule/schedule.css" />
         <option value="$PROJECT_DIR$/src/index.js" />
@@ -133,22 +115,29 @@
         <option value="$PROJECT_DIR$/src/pages/detail/description/description.jsx" />
         <option value="$PROJECT_DIR$/src/pages/detail/footer/footer.jsx" />
         <option value="$PROJECT_DIR$/src/pages/detail/group/group.jsx" />
-        <option value="$PROJECT_DIR$/src/pages/detail/detail.jsx" />
         <option value="$PROJECT_DIR$/src/pages/detail/schedule/schedule.jsx" />
         <option value="$PROJECT_DIR$/src/pages/detail/outline/outline.jsx" />
         <option value="$PROJECT_DIR$/src/pages/detail/outline/outline.scss" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/pages/Login/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config-overrides.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.scss" />
+        <option value="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" />
+        <option value="$PROJECT_DIR$/src/pages/detail/pricedetail/pricedetail.jsx" />
+        <option value="$PROJECT_DIR$/src/pages/detail/pricedetail/price.scss" />
+        <option value="$PROJECT_DIR$/src/pages/detail/pricedetail/price.jsx" />
+        <option value="$PROJECT_DIR$/src/pages/detail/carousel/carousel.scss" />
+        <option value="$PROJECT_DIR$/src/pages/detail/detail.jsx" />
+        <option value="$PROJECT_DIR$/src/pages/detail/detail.scss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-188" />
-    <option name="y" value="252" />
+    <option name="x" value="-103" />
+    <option name="y" value="260" />
     <option name="width" value="1915" />
-    <option name="height" value="752" />
+    <option name="height" value="739" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -199,7 +188,8 @@
               <item name="E:\1904\xifanlvxing" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="detail" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="carousel" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -211,7 +201,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/Login" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/detail/pricedetail" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -221,6 +211,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\1904\xifanlvxing\src\pages\detail\pricedetail" />
       <recent name="E:\1904\xifanlvxing\src\pages\Login" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -254,15 +245,15 @@
       <workItem from="1563940093150" duration="1680000" />
       <workItem from="1563944690100" duration="628000" />
       <workItem from="1563945383888" duration="55000" />
-      <workItem from="1563945453433" duration="36470000" />
+      <workItem from="1563945453433" duration="57143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38833000" />
+    <option name="totallyTimeSpent" value="59506000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="78" y="298" width="1532" height="601" extended-state="0" />
+    <frame x="-82" y="208" width="1532" height="591" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21991979" />
@@ -270,7 +261,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.6082251" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -287,6 +278,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/pages/detail/pricedetail/price.jsx</url>
+          <line>45</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/App.css">
@@ -384,13 +387,6 @@
     <entry file="file://$PROJECT_DIR$/.babelrc">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/detail/carousel/carousel.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/img/gou.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -398,23 +394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -486,43 +465,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/detail/outline/outline.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
-          <folding>
-            <element signature="e#8#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/detail/outline/outline.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-          <folding>
-            <element signature="e#193#235#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -533,29 +479,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/pages/Login/Login.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        <state relative-caret-position="1232">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Login/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        <state relative-caret-position="-728">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Login/Login.scss">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
-          <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+        <state relative-caret-position="196">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
+          <folding>
+            <element signature="e#1#41#0" expanded="true" />
+            <element signature="e#193#235#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/outline/outline.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="25" column="23" lean-forward="true" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="e#8#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/pricedetail/pricedetail.jsx">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="67" column="335" selection-start-line="67" selection-start-column="335" selection-end-line="67" selection-end-column="341" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/pricedetail/price.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+          <folding>
+            <element signature="e#8#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/pricedetail/price.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="70" column="19" lean-forward="true" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/carousel/carousel.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="76" column="83" selection-start-line="76" selection-start-column="73" selection-end-line="76" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="105" column="19" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="19" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
