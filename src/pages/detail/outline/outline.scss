@@ -1,4 +1,16 @@
 .outline{
+  .fixed{
+    width: 100%;
+    position: fixed;
+    top: 45px;
+    background-color: #fff;
+    z-index: 100;
+    box-shadow: 0 0.053333rem 0.16rem rgba(0, 0, 0, 0.14);
+  }
+  #preout{
+    height: 41px;
+    z-index: -1;
+  }
   nav{
     display: flex;
     justify-content: space-around;
@@ -26,7 +38,7 @@
       width: 93px;
       text-align: center;
       height: 40px;
-      line-height: 40px;
+      line-height: 42px;
     }
     .active{
       border-bottom: 2px solid #4bb1f5;

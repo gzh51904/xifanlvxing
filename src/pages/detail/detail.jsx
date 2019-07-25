@@ -19,8 +19,62 @@ class detail extends React.Component {
         this.state = {
             visible: true,
             selected: '',
+            y:''
         };
+
     }
+    componentDidMount() {
+        //固定
+        setTimeout(function f(){
+            //屏幕高度
+            let ih = window.innerHeight
+            console.log(ih)
+            let getnav = document.getElementById('hhh');
+            let header = document.getElementsByTagName('header')[0];
+            let sy = getnav.offsetTop - header.offsetHeight;
+
+            let price_detail = document.getElementById('price_detail');
+            let pricey = price_detail.offsetTop -ih
+            let tabs = getnav.children[0].children
+
+            let notice_bottom = document.getElementById('notice_bottom');
+            let noticey = notice_bottom.offsetTop - ih
+
+            //显示空盒子防止固定定位屏幕抖动
+            let preout = document.getElementById('preout')
+            //滚动条操作
+            window.onscroll = function () {
+                if (parseInt(this.scrollY)>=sy){
+                    getnav.setAttribute('class','fixed')
+                    preout.style.display = 'block'
+                }else{
+                    getnav.setAttribute('class','')
+                    preout.style.display = 'none'
+                }
+                if(parseInt(this.scrollY)>=pricey){
+                    pc()
+                    tabs[1].setAttribute('class','active');
+                }else{
+                    pc()
+                    tabs[0].setAttribute('class','active');
+                }
+                if (parseInt(this.scrollY)>=noticey) {
+                    pc()
+                    tabs[2].setAttribute('class','active');
+                }
+            }
+            function pc() {
+                for(var i = 0;i < tabs.length; i++) {
+                    tabs[i].setAttribute('class','');
+                }
+            }
+        })
+
+    }
+    componentWillUpdate(nextProps, nextState, nextContext) {
+
+    }
+
     onSelect = (opt) => {
         // console.log(opt.props.value);
         this.setState({
