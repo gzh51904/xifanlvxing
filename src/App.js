@@ -10,6 +10,7 @@ import Home from './pages/Home/index'
 import Bourn from './pages/Bourn'
 import Consult from './pages/Consult'
 import Mine from './pages/Mine'
+import {connect} from "react-redux";
 
 class App extends Component {
   constructor() {
@@ -43,7 +44,6 @@ class App extends Component {
         },
       ]
     };
-
     this.goto = this.goto.bind(this)
   }
   goto(path){

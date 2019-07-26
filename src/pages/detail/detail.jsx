@@ -1,6 +1,5 @@
 import React from 'react'
 import {NavBar, Icon,Popover} from 'antd-mobile';
-
 import Carousel from './carousel/carousel '
 import Schedule from './schedule/schedule'
 import Group from './group/group'
@@ -10,6 +9,10 @@ import Outline from "./outline/outline";
 import SchDetail from  './sch_detail/sch_detail'
 import Price from  './pricedetail/price'
 import './detail.scss'
+import {connect} from 'react-redux'
+import store from '../../store/store'
+import {Route} from 'react-router-dom'
+
 const Item = Popover.Item;
 
 
@@ -19,61 +22,46 @@ class detail extends React.Component {
         this.state = {
             visible: true,
             selected: '',
-            y:''
+            y:'',
+            data:'',
+            title:'',
+            ih:'',//接收从组件
         };
-
     }
-    componentDidMount() {
-        //固定
-        setTimeout(function f(){
-            //屏幕高度
-            let ih = window.innerHeight
-            console.log(ih)
-            let getnav = document.getElementById('hhh');
-            let header = document.getElementsByTagName('header')[0];
-            let sy = getnav.offsetTop - header.offsetHeight;
-
-            let price_detail = document.getElementById('price_detail');
-            let pricey = price_detail.offsetTop -ih
-            let tabs = getnav.children[0].children
-
-            let notice_bottom = document.getElementById('notice_bottom');
-            let noticey = notice_bottom.offsetTop - ih
-
-            //显示空盒子防止固定定位屏幕抖动
-            let preout = document.getElementById('preout')
-            //滚动条操作
-            window.onscroll = function () {
-                if (parseInt(this.scrollY)>=sy){
-                    getnav.setAttribute('class','fixed')
-                    preout.style.display = 'block'
-                }else{
-                    getnav.setAttribute('class','')
-                    preout.style.display = 'none'
-                }
-                if(parseInt(this.scrollY)>=pricey){
-                    pc()
-                    tabs[1].setAttribute('class','active');
-                }else{
-                    pc()
-                    tabs[0].setAttribute('class','active');
-                }
-                if (parseInt(this.scrollY)>=noticey) {
-                    pc()
-                    tabs[2].setAttribute('class','active');
-                }
-            }
-            function pc() {
-                for(var i = 0;i < tabs.length; i++) {
-                    tabs[i].setAttribute('class','');
-                }
-            }
+    componentWillMount() {
+        let data = this.props.$axios.get('https://m.tourscool.com/api/product/2584?t=1564149180',{
+        }).then(({data})=>{
+            this.setState({
+                data:data.data,
+                title:data.data.product.name
+            })
+            console.log(this.state.data)
         })
 
     }
-    componentWillUpdate(nextProps, nextState, nextContext) {
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        if (nextState.data===this.state.data) {
+            return false
+        }
+        return true
+    }
+
+    componentDidMount() {
+
+        //固定
+        setTimeout(function(){
+
+
+            //滚动条操作
+            window.onscroll = function () {
+
+
+            }
+
+        }.bind(this))
 
     }
+
 
     onSelect = (opt) => {
         // console.log(opt.props.value);
@@ -131,23 +119,23 @@ class detail extends React.Component {
                                 <Icon key="1" type="ellipsis" className="right_more"/>
                             </div>
                         </Popover>
-                        <div className="title_content" key="124">(5天)【经典游】日本大阪+京都+神户+奈良5日游 清水寺+伏见稻荷大社+奈良公园+有马温泉+六甲山夜景</div>
+                        <div className="title_content">{this.state.title}</div>
                     </NavBar>
                 </header>
                 {/*内容*/}
                 <div className="detail_con">
                     {/*    轮播图*/}
-                    <Carousel></Carousel>
+                    <Carousel data={this.state.data}></Carousel>
                     {/*    热门行程*/}
-                    <Schedule></Schedule>
+                    <Schedule data={this.state.data}></Schedule>
                     {/*    团购*/}
-                    <Group/>
+                    <Group data={this.state.data}/>
                     {/*    推荐*/}
-                    <Description/>
+                    <Description data={this.state.data}/>
                     {/*    行程概要*/}
-                    <Outline/>
+                    <Outline data={this.state.data}/>
                     {/*    行程详情*/}
-                    <SchDetail/>
+                    <SchDetail data={this.state.data}/>
                     {/*    费用明细*/}
                     <Price/>
                 </div>
@@ -157,5 +145,11 @@ class detail extends React.Component {
         );
     }
 }
-
+function mapStateToProps(state){
+    return{
+        $axios:state.commonReducer.axios,
+        ih:state.detailReducer.getih
+    }
+}
+detail = connect(mapStateToProps)(detail)
 export default detail
