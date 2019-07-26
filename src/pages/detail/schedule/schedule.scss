@@ -1,0 +1,67 @@
+.schedule_title{
+    color: #5b5b5b;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing:0.5px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    .schedule_title_r{
+        position: absolute;
+        top: 10px;
+        right: 0;
+    }
+}
+.schedule_go{
+    height: 21.6px;
+}
+.schedule_place{
+    margin-left: 20px;
+    color: #5b5b5b;
+    letter-spacing: 1.5px;
+    font-weight: 300;
+}
+.dsaf{
+    position: relative;
+}
+.am-modal-content{
+    height: 120px;
+    border-radius: 12px 12px 0 0;
+    .am-list-header{
+        font-size: 16px;
+        padding: 10px 15px 9px 15px;
+        color: #323233;
+    }
+    .am-list-content{
+        margin-top: 20px;
+        font-size: 16px !important;
+        color: #4d4d4d !important;
+        font-weight: bold;
+        margin-left: 20px;
+        position: relative;
+        bottom: 2px;
+    }
+    .gou{
+        position: absolute;
+        z-index: 1000;
+        width: 14px;
+        height: 14px;
+        top: 12px;
+        left: -20px;
+    }
+    .close{
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        right: 28px;
+        top: 15px;
+        color:	#8B8386;
+    }
+}
+.am-list-item .am-list-line .am-list-content{
+    overflow: visible;
+}
+html:not([data-scale]) .am-list-body::after{
+    background-color: #fff;
+}

@@ -1,0 +1,42 @@
+.footer{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  img{
+    width: 30px;
+    height: 30px;
+  }
+  span{
+    font-size: 5px;
+    font-weight: 300;
+    color: #3e3e3e;
+  }
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sc{
+    flex: 1;
+  }
+  .call{
+    flex: 1;
+  }
+  .zx{
+    flex: 1;
+  }
+  .yuding{
+    flex:3;
+    height: 48px;
+  }
+  .ybuy{
+    height: 48px;
+    width: 165px;
+    background: #fb605d;
+    border-radius: 4px;
+    color: #fff;
+    line-height: 48px;
+    font-size: 20px;
+
+  }
+}

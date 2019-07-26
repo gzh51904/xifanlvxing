@@ -57,6 +57,31 @@ export default class index extends Component {
         }).catch(function(error){
             console.log(error);
         })
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.onload = function(){
+        //     if(xhr.status === 200){
+        //         let data = JSON.parse(xhr.responseText)
+        //         console.log(data.data);
+        //         let lazyUl = document.getElementById('lazyUl')
+        //         let html = data.data.map((item,idx)=>{
+        //             return `<li key=${idx}>
+        //                 <img src="${item.image}" alt=${idx}/>
+        //                 <div className="list_t">
+        //                     ${item.name}
+        //                 </div>
+        //                 <p><span>热门</span></p>
+        //                 <div className="list_b">
+        //                     <span>${item.default_price}</span>
+        //                     <span>/ 起</span>
+        //                 </div>
+        //             </li>`
+        //         }).join('');
+        //         lazyUl.innerHTML = html
+        //     }
+        // }
+        // xhr.open("get",'https://m.tourscool.com/api/index/topsales?t=1563887798&page=2',true);
+        // xhr.send(null);
     }
 
       
@@ -213,13 +238,11 @@ export default class index extends Component {
                 <div className="h_lists">
                     <h3>精选商品</h3>
                     <div ref="listLazy" className="list_lazy">
-                        <ul>
+                        <ul id="lazyUl">
                             {
-                                // console.log(this.state.lazyDatas)
-                                
                                 this.state.lazyDatas.map((item,idx)=>{
                                     return <li key={idx}>
-                                        <img src={item.image} alt=""/>
+                                        <img src={item.image} alt={idx}/>
                                         <div className="list_t">
                                             {item.name}
                                         </div>
@@ -232,29 +255,6 @@ export default class index extends Component {
                                 })
                                 
                             }
-                            {/* <li>
-                                        <img src="https://img.tourscool.com/images/product/5c98c5fdc5ac9.jpg/600x338" alt=""/>
-                                        <div className="list_t">
-                                        (5天)【美西风光】美国洛杉矶+拉斯维加斯+大峡谷跟团游▪精选舒适酒店+饱览西部风光+资深品质巴士接送+主题项目10选1
-                                        </div>
-                                        <p><span>热门</span></p>
-                                        <div className="list_b">
-                                            <span>￥1155</span>
-                                            <span>/ 起</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="https://img.tourscool.com/images/product/5c98c5fdc5ac9.jpg/600x338" alt=""/>
-                                        <div className="list_t">
-                                        (5天)【美西风光】美国洛杉矶+拉斯维加斯+大峡谷跟团游▪精选舒适酒店+饱览西部风光+资深品质巴士接送+主题项目10选1
-                                        </div>
-                                        <p><span>热门</span></p>
-                                        <div className="list_b">
-                                            <span>￥1155</span>
-                                            <span>/ 起</span>
-                                        </div>
-                                    </li> */}
-                            
                         </ul>
                     </div>
                 </div>
