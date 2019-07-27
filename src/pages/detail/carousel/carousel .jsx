@@ -5,39 +5,24 @@ import {Carousel, WingBlank} from 'antd-mobile';
 import './carousel.scss'
 
 class carousel extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            img: [1,2,3],
-            title:'',
-            price:'',
-            imgHeight: 50,
-            nowselect: '0',
-        }
-        // console.log(this.state.header)
-    }
-    componentWillReceiveProps({data}, nextContext) {
-        //拿到父组件传来的数据
-        // setTimeout(function () {
-        this.setState({
-            img:data.product.images,
-            title:data.product.name,
-            price:data.product.default_price,
-        })
-        // })
+    state = {
+        data: ['1', '2', '3'],
+        imgHeight: 50,
+        nowselect: '0'
     }
 
     componentDidMount() {
         // simulate img loading
-
-
-
+        setTimeout(() => {
+            this.setState({
+                data: ['https://img.tourscool.com/images/product/5c861d39491db.jpg/600x338', 'https://img.tourscool.com/images/product/5c861d6d1c837.jpg/600x338', 'https://img.tourscool.com/images/product/5c861db91e9ec.jpg', 'https://img.tourscool.com/images/product/5c861e105769a.jpg', 'https://img.tourscool.com/images/product/5c861e4d19ff9.jpg/600x338', 'https://img.tourscool.com/images/product/5c861ea80b3a2.jpg'],
+            });
+        }, 100);
     }
 
     render() {
         return (
             <div>
-                <meta name="referrer" content="no-referrer" />
                 <WingBlank>
                     <Carousel
                         autoplay={true}
@@ -47,7 +32,7 @@ class carousel extends React.Component {
                         // beforeChange={(from, to) => console.log(this)}
                         afterChange={index => this.setState({nowselect: index})}
                     >
-                        {this.state.img.map(val => (
+                        {this.state.data.map(val => (
 
                             <a
                                 key={val}
@@ -77,11 +62,11 @@ class carousel extends React.Component {
                         ))}
                     </Carousel>
                     {/*图片序号*/}
-                    <div className="pages">{this.state.nowselect - 0 + 1}/{this.state.img.length}</div>
+                    <div className="pages">{this.state.nowselect - 0 + 1}/{this.state.data.length}</div>
 
                 </WingBlank>
-                <div className="detail_content"><p>{this.state.title}</p>
-                    <span>{this.state.price}<em>{this.state.price?'起':''}</em></span></div>
+                <div className="detail_content"><p>(5天)【经典游】日本大阪+京都+神户+奈良5日游 清水寺+伏见稻荷大社+奈良公园+有马温泉+六甲山夜景</p>
+                    <span>￥1,999.00<em>起</em></span></div>
             </div>
         );
     }

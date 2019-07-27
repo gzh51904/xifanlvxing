@@ -9,19 +9,7 @@ class schedule extends React.Component {
         super(props);
         this.state = {
             modal: false,
-            title:'',
-            start:'',
-            end:''
         };
-        console.log(this.props)
-    }
-    componentWillReceiveProps({data}, nextContext) {
-            console.log(data)
-        this.setState({
-            title:data.product.icons_tour[0].title,
-            start:data.product.departure_city,
-            end:data.product.end_city,
-        })
     }
 
     showModal = key => (e) => {
@@ -43,10 +31,10 @@ class schedule extends React.Component {
                     width: '14px',
                     height: '14px',
                     position: 'relative',
-                    top: '-1px',
+                    top: '2px',
                     marginRight: '5px'
                 }}/>
-                    <sp-an>{this.state.title}</sp-an>
+                    <sp-an>畅销行程</sp-an>
                     <Icon type="right" className="schedule_title_r" onClick={this.showModal('modal')}/></div>
                 <div style={{padding: '10px 0'}}>
                     <div className="schedule_go"><img src="img/qifei.png" alt="" style={{
@@ -55,14 +43,14 @@ class schedule extends React.Component {
                         position: 'relative',
                         top: '-1px',
                         marginRight: '2px'
-                    }}/><span>出发地</span><span className="schedule_place">{this.state.start}</span></div>
+                    }}/><span>出发地</span><span className="schedule_place">大阪</span></div>
                     <div className="schedule_go"><img src="img/xialuo.png" alt="" style={{
                         width: '20px',
                         height: '20px',
                         position: 'relative',
                         top: '-1px',
                         marginRight: '2px'
-                    }}/><span>结束地</span><span className="schedule_place">{this.state.end}</span></div>
+                    }}/><span>结束地</span><span className="schedule_place">大阪</span></div>
                 </div>
                 {/*    弹窗*/}
                 <WingBlank>
@@ -78,7 +66,7 @@ class schedule extends React.Component {
                     >
                         <List renderHeader={() => <div>服务说明<Icon type="cross-circle" className="close" onClick={this.onClose('modal')}/> </div>} className="popup-list">
 
-                            {[this.state.title].map((i, index) => (
+                            {['畅销行程'].map((i, index) => (
                                 <List.Item key={index}>{i}
                                     <img src="img/gou.png" alt="" className="gou"/>
                                 </List.Item>
