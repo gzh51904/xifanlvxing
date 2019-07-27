@@ -18,6 +18,7 @@ html {
 .footer {
     border-top: 1px solid #ccc;
     height: 50px;
+    display: block;
 }
 
 .footer ul {

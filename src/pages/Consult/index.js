@@ -1,51 +1,47 @@
-import React, { Component } from 'react'
-import { Carousel, WingBlank } from 'antd-mobile';
+import React,{ Component } from 'react'
 
-export default class index extends Component {
-    state = {
-        data: ['1', '2', '3'],
-        imgHeight: 176,
-      }
-      componentDidMount() {
-        // simulate img loading
-        setTimeout(() => {
-          this.setState({
-            data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
-          });
-        }, 100);
-      }
-      render() {
-        return (
-          <div>
-            <WingBlank>
-                <Carousel
-                autoplay={false}
-                infinite
-                beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                afterChange={index => console.log('slide to', index)}
-                >
-                {this.state.data.map(val => (
-                    <a
-                    key={val}
-                    href="http://www.alipay.com"
-                    style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                    >
-                    <img
-                        src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
-                        alt=""
-                        style={{ width: '100%', verticalAlign: 'top' }}
-                        onLoad={() => {
-                        // fire window resize event to change height
-                        window.dispatchEvent(new Event('resize'));
-                        this.setState({ imgHeight: 'auto' });
-                        }}
-                    />
-                    <span>咨询</span>
-                    </a>
-                ))}
-                </Carousel>
-            </WingBlank>
-          </div>
-        );
-      }
+import './index.scss'
+
+class Consult extends Component{
+  componentWillMount(){
+    console.log(this.props.match)
+    setTimeout(function(){
+         const footer = document.querySelector('.footer')
+         let {url}=this.props.match;
+         if(url==='/consult'){
+             footer.style.display='none';
+         }
+    }.bind(this))
+    
 }
+
+componentWillUnmount(){
+    const footer=document.getElementsByClassName('footer')[0];
+    footer.style.display='block';
+}
+
+goBack(){
+  window.history.go(-1);
+}
+
+  constructor(){
+    super();
+    this.state={
+
+    }
+    this.goBack=this.goBack.bind(this);
+  }
+    render(){
+      return<div className="content">
+        <header>
+        <p className="left" onClick={this.goBack}>&lt;</p>
+        <p className="con"><span >客服咨询</span></p>
+        </header>
+        <main className='m'>
+
+        </main>
+      </div>
+    }
+}
+
+export default Consult;
