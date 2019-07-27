@@ -1,51 +1,35 @@
-import React, { Component } from 'react'
-import { Carousel, WingBlank } from 'antd-mobile';
+import React from 'react'
+import { Tabs, WhiteSpace } from 'antd-mobile';
 
-export default class index extends Component {
-    state = {
-        data: ['1', '2', '3'],
-        imgHeight: 176,
-      }
-      componentDidMount() {
-        // simulate img loading
-        setTimeout(() => {
-          this.setState({
-            data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
-          });
-        }, 100);
-      }
-      render() {
-        return (
-          <div>
-            <WingBlank>
-                <Carousel
-                autoplay={false}
-                infinite
-                beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                afterChange={index => console.log('slide to', index)}
-                >
-                {this.state.data.map(val => (
-                    <a
-                    key={val}
-                    href="http://www.alipay.com"
-                    style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                    >
-                    <img
-                        src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
-                        alt=""
-                        style={{ width: '100%', verticalAlign: 'top' }}
-                        onLoad={() => {
-                        // fire window resize event to change height
-                        window.dispatchEvent(new Event('resize'));
-                        this.setState({ imgHeight: 'auto' });
-                        }}
-                    />
-                    <span>我的</span>
-                    </a>
-                ))}
-                </Carousel>
-            </WingBlank>
+const tabs = [
+  { title: '1 Tab', key: 't1' },
+  { title: '2 Tab', key: 't2' },
+  { title: '3 Tab', key: 't3' },
+];
+function Index() {
+  return (
+      <div style={{ height: 200 }}>
+        <WhiteSpace />
+        <Tabs tabs={tabs}
+          initialPage={'t2'}
+          tabBarPosition="left"
+          tabDirection="vertical"
+        >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+            Content of first tab
           </div>
-        );
-      }
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+            Content of second tab
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+            Content of third tab
+          </div>
+        </Tabs>
+        <WhiteSpace />
+      </div>
+  )
 }
+
+
+export default Index
+
