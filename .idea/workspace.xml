@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc1c9496-538d-4439-831a-ce4ace95abc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/img/0Vjxz9AvguP1E-z0A6F9SWBjB1Q.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/754h0Rfh3ECsZs16BDrV131OBy4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/BgR1vC7Ob9bCz__wCw7OFrCkrpM.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/DxI9s0Q5_0r_BYNrdbk6Zf-OvuI.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/FBbOVlJMwOTv--dojEsDb9mN_gE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/_KMHLpS45kgRFhmMU1rXPgvcfE4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/gH4_92OqrpmeXlsrYPS6p5BYyCk.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/no4AHPnG1fzDnbgZomxg2ysobVM.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/base_px.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/base_px.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Bourn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Bourn/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Consult/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Consult/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/detail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/detail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/detail.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/outline/outline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/outline/outline.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/pricedetail/price.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/pricedetail/price.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="cc1c9496-538d-4439-831a-ce4ace95abc8" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -42,106 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="39" column="95" selection-start-line="39" selection-start-column="95" selection-end-line="39" selection-end-column="95" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/detail/pricedetail/price.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="77" column="72" selection-start-line="77" selection-start-column="72" selection-end-line="77" selection-end-column="72" />
-              <folding>
-                <element signature="e#8#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="75" column="38" lean-forward="true" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/detail/outline/outline.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/detail/outline/outline.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-559">
-              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
-              <folding>
-                <element signature="e#8#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Mine/index.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css/app.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1399">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css/base_px.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="92" selection-start-line="92" selection-start-column="2" selection-end-line="94" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -191,9 +62,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="376" />
-    <option name="y" value="147" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="890" />
+    <option name="y" value="182" />
     <option name="width" value="1915" />
     <option name="height" value="894" />
   </component>
@@ -222,12 +93,6 @@
               <item name="xifanlvxing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="E:\1904\xifanlvxing" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="xifanlvxing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="E:\1904\xifanlvxing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -236,14 +101,6 @@
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="detail" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="xifanlvxing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="E:\1904\xifanlvxing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="detail" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="sch_detail" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -305,11 +162,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111501000" />
+    <option name="totallyTimeSpent" value="111576000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="301" y="118" width="1532" height="715" extended-state="1" />
-    <editor active="true" />
+    <frame x="487" y="80" width="1532" height="715" extended-state="1" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21390374" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -486,8 +342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Home/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4200">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="-1567">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -496,8 +352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/detail/schedule/schedule.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        <state relative-caret-position="1583">
+          <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -520,11 +376,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+        <state relative-caret-position="-196">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding>
             <element signature="e#1#41#0" expanded="true" />
-            <element signature="e#193#235#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -595,11 +450,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Home/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6383">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Mine/index.css">
       <provider selected="true" editor-type-id="text-editor" />
@@ -627,22 +478,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css/base_px.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="92" selection-start-line="92" selection-start-column="2" selection-end-line="94" selection-end-column="3" />
+        <state relative-caret-position="281">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/detail/outline/outline.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/detail/outline/outline.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-559">
-          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+        <state relative-caret-position="281">
+          <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
           <folding>
             <element signature="e#8#33#0" expanded="true" />
           </folding>
@@ -651,8 +502,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="39" column="95" selection-start-line="39" selection-start-column="95" selection-end-line="39" selection-end-column="95" />
+        <state relative-caret-position="-2016">
+          <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -671,8 +522,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="75" column="38" lean-forward="true" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
+        <state relative-caret-position="449">
+          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
