@@ -1,20 +1,30 @@
 import React from 'react'
 import './date_trip.scss'
-import { Icon } from 'antd-mobile';
-class dateTrip extends React.Component {
+import { Icon ,NavBar} from 'antd-mobile';
+import $axios from 'axios';
 
+class dateTrip extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            months: [7, 8, 9, 10, 11],
+            data:'',
+            months: '',
             weeks: "一二三四五六日".split(''),
             getCount:'',
-            hhh:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+            index:'',
+            hasdays:'',
+            dayarr:''
         };
     }
 
     // 获得每个月的日期有多少，注意 month - [0-11]
-    getMonthCount(year, month) {
+    getMonthCount(year, month,index=0) {
+        //当前选择
+        this.setState({
+            index,
+            hasdays:this.state.data[index].days,
+            dayarr:this.state.data[index].days.map(item=>{return item.day})
+        })
         let arr = [
             31, null, 31, 30,
             31, 30, 31, 31,
@@ -42,11 +52,38 @@ class dateTrip extends React.Component {
         }
         //返回一个可以直接渲染的数组
         this.setState({
-            getCount:newarr
+            getCount:newarr,
         })
+
+        // console.log(this.state.data[index].days.map(item=>{return item.day}))
     }
     componentWillMount() {
-        this.getMonthCount(2019, 6)
+        //请求数据
+        $axios.get('https://m.tourscool.com/api/product/1482/calendar',{
+
+        }).then(({data})=>{
+            this.setState({
+                data:data.data,
+                months:data.data.map(item=>{return item.month})
+            })
+            //初始化
+            this.getMonthCount(2019, this.state.months[0]-1)
+
+        })
+
+
+        //如果当前是date，清除底部
+        setTimeout(function () {
+            let footer = document.querySelector('.footer')
+            if (this.props.match.path === '/dateTrip'){
+                footer.style.display = 'none'
+            }
+        }.bind(this))
+    }
+    componentWillUnmount() {
+        //还原
+        let footer = document.querySelector('.footer')
+        footer.style.display = 'block'
     }
     componentWillReceiveProps(nextProps, nextContext) {
     }
@@ -55,16 +92,23 @@ class dateTrip extends React.Component {
         return <div className="date_trip">
             {/*头部*/}
             <div className="header">
-                <div className="icon"><Icon type="left" /></div>
-                <div className="select">选择日期和人数</div>
+                <NavBar
+                    mode="light"
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => console.log('onLeftClick')}
+                >选择日期和人数</NavBar>
             </div>
+            {/*月份*/}
             <ul className="daylist">
                 {
-                    this.state.months.map(item => {
-                        return <li key={item} onClick={this.getMonthCount.bind(this, 2019, item-1)}>{item}月</li>
-                    })
+                    this.state.months?
+                    this.state.months.map((item,index) => {
+                        return <li key={item} onClick={this.getMonthCount.bind(this, 2019, item-1,index)}>{item}月</li>
+                    }):''
+
                 }
             </ul>
+            {/*星期*/}
             <ul className="week">
                 {
                     this.state.weeks.map(item => {
@@ -72,17 +116,23 @@ class dateTrip extends React.Component {
                     })
                 }
             </ul>
+            {
+
+            }
             <ul className="days">
                 {
-
+                    this.state.getCount?
                     this.state.getCount.map((item,index) => {
                         return <li  className="day" key={Date.now()*Math.random()}>
-                            <span>{item}</span>
-                            {/*{*/}
-                            {/*    item ? <span>{this.state.hhh[index]}</span> : ''*/}
-                            {/*}*/}
+                            <span className={this.state.dayarr.indexOf(item)!=-1? 'active' : ''}
+                            >{item}</span><br/>
+                            {
+                                this.state.hasdays.map(day=>{
+                                    return <span key={Date.now()*Math.random()} className="price">{day.day == item ? day.price : ''}</span>
+                                })
+                            }
                         </li>
-                    })
+                    }):''
                 }
             </ul>
         </div>

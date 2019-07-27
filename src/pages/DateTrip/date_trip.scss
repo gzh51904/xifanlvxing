@@ -1,12 +1,9 @@
 .date_trip{
-  .header{
-    display: flex;
-    .icon{
-      flex: 1;
-    }
-    .select{
-      flex: 8;
-    }
+  .am-navbar{
+    margin-bottom: 4px;
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.15);
   }
   ul{
     overflow: hidden;
@@ -15,23 +12,47 @@
     }
   }
   .daylist{
-    margin-bottom: 20px;
+    padding: 0 12.5px;
+    background: #fff;
     li{
-      margin-top: 10px;
-      font-size: 20px;
-      margin-right: 30px;
+      width: 58px;
+      height: 54px;
+      text-align: center;
+      line-height: 54px;
     }
   }
   .week{
+    background: #ebebeb;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
     display: flex;
     justify-content: space-around;
+    li:nth-child(1){
+      color: red;
+    }
+    li:nth-last-child(1){
+      color: red;
+    }
   }
   .days{
-    margin-top: 20px;
+    background: #fff;
+    padding-top: 20px;
     .day{
-      height: 50px;
+      color: rgb(201, 201, 201);
+      margin-bottom: 12.5px;
+      height: 59px;
       width:14.28%;
       text-align: center;
+      .price{
+        color:black;
+        fontSize:12px;
+        position: relative;
+        top: 4px;
+      }
+      .active{
+        color: red;
+      }
     }
   }
 }
