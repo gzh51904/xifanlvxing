@@ -81,6 +81,7 @@ class Login extends Component{
             number:e.target.value
         })
         console.log(this.state.number)
+        console.log(this)
     }
 
     // num(){
@@ -91,7 +92,7 @@ class Login extends Component{
     // }
 
     showToastNoMask() {
-        // this.num();
+
         Toast.info('不能为空', 2, null, false);
     }
 
