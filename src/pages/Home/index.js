@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Carousel, WingBlank } from 'antd-mobile'
 import axios from 'axios'
 import './index.css'
+import '../../iconfont/icon/iconfont.css'
 
 export default class index extends Component {
     constructor(){
@@ -9,6 +10,9 @@ export default class index extends Component {
         this.state = {
             data: [],
             lazyDatas:[],
+            page: { num:1},
+            aImageHeight: {num:0},//图片到顶部的距离
+            send: { bole: true},
             imgHeight: 176,
             // 目的地数据
             bourns:[
@@ -40,8 +44,9 @@ export default class index extends Component {
         ]
         }
 
-        // this.scrollFn = this.scrollFn.bind(this);
+        this.scrollFn = this.scrollFn.bind(this);
     }
+
     //   请求数据
     async componentWillMount(){
         await axios.get('https://m.tourscool.com/api/index/topsales',{
@@ -50,41 +55,16 @@ export default class index extends Component {
                 page: 1
             }
         }).then((datas)=>{
-            console.log(datas.data.data);
+            // console.log(datas.data.data);
             this.setState(
                 this.state = { lazyDatas : datas.data.data}
             )
         }).catch(function(error){
             console.log(error);
         })
-
-        // var xhr = new XMLHttpRequest();
-        // xhr.onload = function(){
-        //     if(xhr.status === 200){
-        //         let data = JSON.parse(xhr.responseText)
-        //         console.log(data.data);
-        //         let lazyUl = document.getElementById('lazyUl')
-        //         let html = data.data.map((item,idx)=>{
-        //             return `<li key=${idx}>
-        //                 <img src="${item.image}" alt=${idx}/>
-        //                 <div className="list_t">
-        //                     ${item.name}
-        //                 </div>
-        //                 <p><span>热门</span></p>
-        //                 <div className="list_b">
-        //                     <span>${item.default_price}</span>
-        //                     <span>/ 起</span>
-        //                 </div>
-        //             </li>`
-        //         }).join('');
-        //         lazyUl.innerHTML = html
-        //     }
-        // }
-        // xhr.open("get",'https://m.tourscool.com/api/index/topsales?t=1563887798&page=2',true);
-        // xhr.send(null);
     }
 
-      
+    // 生命周期
     componentDidMount() {
         // simulate img loading
         setTimeout(() => {
@@ -101,21 +81,112 @@ export default class index extends Component {
             'https://assets.tourscool.com/uploads/inn/2019/03/05/952/jDk1XNjBDt56YS-xCLd96C0oX-M.jpg'],
           });
         }, 100);
-        // let myHome = this.refs.myHome;
-        // myHome.addEventListener("scroll", this.scrollFn, true);
+        
+        
 
+        // 原生写懒加载，添加滚动事件
+        let main = document.getElementsByClassName('main')[0];
+        main.addEventListener("scroll", this.scrollFn, true); 
+        
         
     }
 
-    // scrollFn(){
-    //     let myHome = this.refs.myHome;
-    //     console.log(myHome);
-    //     console.log(myHome.scrollTop);
-    // }
+    // 滑动事件函数，实现懒加载
+    scrollFn() {
+        // 可视区高度
+        let height = document.documentElement.clientHeight;
+
+        // 所有图片的节点
+        let aImage = document.getElementById('lazyUl').getElementsByTagName("img");
+        // console.log(aImage[4]);
+        
+        // 滚动的节点
+        let main = document.getElementsByClassName('main')[0];
+
+        // 滚动的高度
+        let scrollTop = main.scrollTop;
+
+        // console.log(scrollTop);
+        
+        // 滑动触发滚动事件
+        let h_inputI = document.getElementsByClassName('h_inputI')[0];
+        let h_form = document.getElementsByClassName('h_form')[0];
+        let h_input = document.getElementsByClassName('h_input')[0];
+        if(scrollTop>300){
+            h_form.style.background = "#CCC"
+            h_inputI.style.color = "#CCC"
+            h_input.style.background = "white"
+        }else{
+            h_inputI.style.color = "white"
+            h_form.style.background = "#F9F9F9"
+            h_input.style.background = ""
+        }
+
+        // 滑动一定距离后出现返回顶部按钮
+        let myBtn = document.getElementById('myBtn');
+        if(scrollTop>500){
+            myBtn.style.display = "block";
+        }else{
+            myBtn.style.display = "none";
+        }
+
+        // 存储好第四张图片到顶部距离
+        if(this.state.page.num === 1){
+            var aImageTop = aImage[ this.state.page.num * 5 ].offsetTop
+            this.setState(this.state.aImageHeight = {num : aImageTop})
+
+        }
+        
+        
+        if(this.state.aImageHeight.num <  height + scrollTop && this.state.send.bole){
+            this.setState( 
+                this.state.send = {bole : false} //记得改变this的指向
+            )                                    //第一次满足条件后，改为 false，下次，判断条件不条件就不再跑这个
+
+
+            let page = this.state.page.num + 1;
+            this.setState(this.state.page = { num: page });
+            
+
+
+            axios.get('https://m.tourscool.com/api/index/topsales',{
+                params:{
+                    t: 1564066256,
+                    page: this.state.page.num
+                }
+            }).then((datas)=>{
+                // console.log("2",datas.data.data);
+                let db = datas.data.data;
+                this.setState(
+                    this.state.lazyDatas = [...this.state.lazyDatas,...db],()=>{
+
+                        let aImageTop = aImage[ this.state.page.num * 5+1 ].offsetTop;
+                        this.setState(this.state.aImageHeight = {num : aImageTop})
+                    }
+                )
+                this.setState( 
+                    this.state.send = {bole : true} //记得改变this的指向
+                )                                   //第一次满足条件后，改为 true，满足if条件
+            })
+        }
+    }
     
+    // 返回顶部函数
+    topFunction(){
+        // // 滚动的节点
+        // let main = document.getElementsByClassName('main')[0];
+
+        // // 滚动的高度
+        // main.scrollTop = 0;
+        console.log(1111);
+        
+        
+    }
+
+    // 渲染
     render() {
         return (
-          <div ref="myHome" className="home">
+          <div ref="myHome" className="home main">
             <div className="h_top">
                 <WingBlank className="h_banner">
                     <Carousel
@@ -157,7 +228,7 @@ export default class index extends Component {
                         </div>
                     </div> 
                     <p>
-                        <i className="iconfont icon-dianhua" style={{
+                        <i className="iconfont h_inputI icon-dianhua" style={{
                             fontSize: "30px",
                             fontWeight: "600",
                             color: "#F9F9F9",
@@ -260,7 +331,26 @@ export default class index extends Component {
                 </div>
                 
             </div>
-          </div>
+            <div onClick={()=>{
+                let main = document.getElementsByClassName('main')[0];
+                let myBtn = document.getElementById('myBtn');
+
+                // 滚动的高度
+                // main.scrollTop = 0;
+                
+                if(main.scrollTop>0){
+                    let timer = setInterval(function () {
+                        main.scrollTop = main.scrollTop - 160;
+                        if(main.scrollTop === 0){
+                            clearInterval(timer)
+                        }
+                    },30)
+                }
+                myBtn.style.transition = "all 2s";
+            }} id="myBtn" title="回顶部">
+                <i className="iconfont icon-fangxiang icon-fangxiang-xiangshang"></i>
+            </div>
+        </div>
         );
     }
 }
