@@ -29,7 +29,15 @@ class detail extends React.Component {
         };
     }
     componentWillMount() {
-        let data = this.props.$axios.get('https://m.tourscool.com/api/product/2584?t=1564149180',{
+        //如果当前是detail，清除main样式
+        setTimeout(function () {
+            let main = document.querySelector('.main')
+            if (this.props.match.path === '/detail'){
+                main.style.overflow = 'visible'
+            }
+        }.bind(this))
+
+        let data = this.props.$axios.get('https://m.tourscool.com/api/product/3160?t=1564193550',{
         }).then(({data})=>{
             this.setState({
                 data:data.data,
@@ -39,6 +47,12 @@ class detail extends React.Component {
         })
 
     }
+    componentWillUnmount() {
+        //结束还原
+        let main = document.querySelector('.main')
+        main.style.overflow = 'auto'
+    }
+
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         if (nextState.data===this.state.data) {
             return false
@@ -47,18 +61,6 @@ class detail extends React.Component {
     }
 
     componentDidMount() {
-
-        //固定
-        setTimeout(function(){
-
-
-            //滚动条操作
-            window.onscroll = function () {
-
-
-            }
-
-        }.bind(this))
 
     }
 
@@ -137,7 +139,7 @@ class detail extends React.Component {
                     {/*    行程详情*/}
                     <SchDetail data={this.state.data}/>
                     {/*    费用明细*/}
-                    <Price/>
+                    <Price data={this.state.data}/>
                 </div>
                 {/*    底部*/}
                 <Footer></Footer>

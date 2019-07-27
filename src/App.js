@@ -48,7 +48,7 @@ class App extends Component {
   }
   goto(path){
     let {history} = this.props
-    console.log(path);
+    // console.log(path);
     history.push(path);
   }
   render() {
@@ -72,7 +72,7 @@ class App extends Component {
           <ul>
             {
               this.state.nav.map(item=>{
-                return <li key={item.name} onClick={this.goto.bind(this,item.path)}>
+                return <li key={item.name} onClick={this.goto.bind(this,item.path)} alt="">
                     <div className="f_li">
                       <i className={item.iconfont}></i>
                       <span>{item.title}</span>

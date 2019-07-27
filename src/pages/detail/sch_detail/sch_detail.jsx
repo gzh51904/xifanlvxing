@@ -62,17 +62,19 @@ class sch_detail extends React.Component{
                                 ''
                             }
 
-
-
-
-
-                            <div className="title_t">
-                                <img src="img/zk.png" alt=""/>
-                                <span>酒店</span>
-                            </div>
-                            <div className="content">
-                                {item.hotel}
-                            </div>
+                            {
+                                item.hotel?
+                                <div>
+                                    <div className="title_t">
+                                        <img src="img/zk.png" alt=""/>
+                                        <span>酒店</span>
+                                    </div>
+                                    <div className="content">
+                                        {item.hotel}
+                                    </div>
+                                </div> :
+                                ''    
+                            }
                         </div>
                     }) :
                     ''
