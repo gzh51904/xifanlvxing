@@ -1,0 +1,37 @@
+.date_trip{
+  .header{
+    display: flex;
+    .icon{
+      flex: 1;
+    }
+    .select{
+      flex: 8;
+    }
+  }
+  ul{
+    overflow: hidden;
+    li{
+      float: left;
+    }
+  }
+  .daylist{
+    margin-bottom: 20px;
+    li{
+      margin-top: 10px;
+      font-size: 20px;
+      margin-right: 30px;
+    }
+  }
+  .week{
+    display: flex;
+    justify-content: space-around;
+  }
+  .days{
+    margin-top: 20px;
+    .day{
+      height: 50px;
+      width:14.28%;
+      text-align: center;
+    }
+  }
+}
