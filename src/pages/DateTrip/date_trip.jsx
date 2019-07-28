@@ -9,6 +9,7 @@ class dateTrip extends React.Component {
         this.state = {
             data:'',
             months: '',
+            nowmonth:'',
             weeks: "一二三四五六日".split(''),
             getCount:'',
             index:'',
@@ -18,10 +19,19 @@ class dateTrip extends React.Component {
     }
 
     // 获得每个月的日期有多少，注意 month - [0-11]
-    getMonthCount(year, month,index=0) {
+    //item为点击的月份如7
+    getMonthCount(year, month,index=0,item) {
+        //点击月份高亮
+        let monthList = document.querySelectorAll('.daylist li');
+        for (let i = 0; i < monthList.length; i++){monthList[i].setAttribute('class','')}
+        monthList[index].setAttribute('class','monthactive')
+        //去除日期往返
+        let goandback = document.getElementById('goandback');
+        goandback.innerText = '';
         //当前选择
         this.setState({
             index,
+            nowmonth:item,
             hasdays:this.state.data[index].days,
             dayarr:this.state.data[index].days.map(item=>{return item.day})
         })
@@ -57,6 +67,23 @@ class dateTrip extends React.Component {
 
         // console.log(this.state.data[index].days.map(item=>{return item.day}))
     }
+    //选择事件
+    select(ev){
+        //排他
+        let li = document.getElementsByClassName('day')
+        for(let i = 0; i < this.state.getCount.length; i++){
+            li[i].setAttribute('class','day')
+        }
+        //显示往返信息
+        let goandback = document.getElementById('goandback');
+        let month = this.state.nowmonth;
+        let day = ev.target.parentNode.firstChild.innerText
+        for (let i = 0; i < 1;i++){
+            goandback.innerText = `${month}月${day}日出发-${month}月${day-0+1}日返`
+        }
+        console.log(ev.target.parentNode.firstChild.innerText)
+        return ev.target.parentNode.setAttribute('class','day activeLi')
+    }
     componentWillMount() {
         //请求数据
         $axios.get('https://m.tourscool.com/api/product/1482/calendar',{
@@ -67,7 +94,7 @@ class dateTrip extends React.Component {
                 months:data.data.map(item=>{return item.month})
             })
             //初始化
-            this.getMonthCount(2019, this.state.months[0]-1)
+            this.getMonthCount(2019, this.state.months[0]-1,0,this.state.months[0])
 
         })
 
@@ -103,7 +130,7 @@ class dateTrip extends React.Component {
                 {
                     this.state.months?
                     this.state.months.map((item,index) => {
-                        return <li key={item} onClick={this.getMonthCount.bind(this, 2019, item-1,index)}>{item}月</li>
+                        return <li key={item} onClick={this.getMonthCount.bind(this, 2019, item-1,index,item)}>{item}月</li>
                     }):''
 
                 }
@@ -125,16 +152,23 @@ class dateTrip extends React.Component {
                     this.state.getCount.map((item,index) => {
                         return <li  className="day" key={Date.now()*Math.random()}>
                             <span className={this.state.dayarr.indexOf(item)!=-1? 'active' : ''}
+                                  // onClick={this.select.bind(this,index)}
                             >{item}</span><br/>
                             {
                                 this.state.hasdays.map(day=>{
-                                    return <span key={Date.now()*Math.random()} className="price">{day.day == item ? day.price : ''}</span>
+                                    return <span key={Date.now()*Math.random()} className="price" onClick={(event) => { }}onClick={this.select.bind(this)}>{day.day == item ? day.price : ''}</span>
                                 })
                             }
                         </li>
                     }):''
                 }
             </ul>
+            <div style={{'background':'#fff'}}>
+                <div className="bottom">
+                    <div id="goandback"></div>
+                    <div>最少1人成团</div>
+                </div>
+            </div>
         </div>
     }
 
