@@ -9,7 +9,7 @@ class sch_detail extends React.Component{
 
     }
     componentWillReceiveProps({data}, nextContext) {
-        console.log(data)
+
         this.setState({
             item:data.itinerary.items
         })

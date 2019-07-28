@@ -2,6 +2,9 @@ import React from 'react'
 import './date_trip.scss'
 import { Icon ,NavBar} from 'antd-mobile';
 import $axios from 'axios';
+import store from '../../store/store'
+import Bottom from './bottom_price/bottom_price'
+import Room from './room/room'
 
 class dateTrip extends React.Component {
     constructor(props) {
@@ -14,7 +17,8 @@ class dateTrip extends React.Component {
             getCount:'',
             index:'',
             hasdays:'',
-            dayarr:''
+            dayarr:'',
+            allPrice:'',
         };
     }
 
@@ -25,6 +29,8 @@ class dateTrip extends React.Component {
         let monthList = document.querySelectorAll('.daylist li');
         for (let i = 0; i < monthList.length; i++){monthList[i].setAttribute('class','')}
         monthList[index].setAttribute('class','monthactive')
+        //全局状态
+        store.dispatch({type:'isSelect',payload:false})
         //去除日期往返
         let goandback = document.getElementById('goandback');
         goandback.innerText = '';
@@ -74,6 +80,8 @@ class dateTrip extends React.Component {
         for(let i = 0; i < this.state.getCount.length; i++){
             li[i].setAttribute('class','day')
         }
+        //全局状态
+        store.dispatch({type:'isSelect',payload:true})
         //显示往返信息
         let goandback = document.getElementById('goandback');
         let month = this.state.nowmonth;
@@ -81,19 +89,20 @@ class dateTrip extends React.Component {
         for (let i = 0; i < 1;i++){
             goandback.innerText = `${month}月${day}日出发-${month}月${day-0+1}日返`
         }
-        console.log(ev.target.parentNode.firstChild.innerText)
         return ev.target.parentNode.setAttribute('class','day activeLi')
     }
+
     componentWillMount() {
         //请求数据
         $axios.get('https://m.tourscool.com/api/product/1482/calendar',{
 
         }).then(({data})=>{
+            console.log(data)
             this.setState({
                 data:data.data,
                 months:data.data.map(item=>{return item.month})
             })
-            //初始化
+            //初始化数据
             this.getMonthCount(2019, this.state.months[0]-1,0,this.state.months[0])
 
         })
@@ -113,7 +122,9 @@ class dateTrip extends React.Component {
         footer.style.display = 'block'
     }
     componentWillReceiveProps(nextProps, nextContext) {
+
     }
+
 
     render() {
         return <div className="date_trip">
@@ -169,6 +180,12 @@ class dateTrip extends React.Component {
                     <div>最少1人成团</div>
                 </div>
             </div>
+            {/*房间*/}
+            <Room/>
+            {/*    底部价格*/}
+            <Bottom/>
+            <div style={{height:'82.5px'}}></div>{/*//撑开*/}
+
         </div>
     }
 

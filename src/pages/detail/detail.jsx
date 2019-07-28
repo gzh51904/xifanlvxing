@@ -36,13 +36,22 @@ class detail extends React.Component {
                 main.style.overflow = 'visible'
             }
         }.bind(this))
-
-        let data = this.props.$axios.get('https://m.tourscool.com/api/product/3160?t=1564193550',{
+        //发起请求
+        let data = this.props.$axios.get('https://m.tourscool.com/api/product/1482?t=1564193550',{
         }).then(({data})=>{
             this.setState({
                 data:data.data,
                 title:data.data.product.name
             })
+            //设置全局
+            let homePrice = data.data.expense.standard_price
+            let obj = {
+                one:homePrice.price_single,
+                two:homePrice.price_double,
+                kid:homePrice.price_kids
+            }
+            console.log(obj)
+            store.dispatch({type:'homePrice',payload:obj})
             console.log(this.state.data)
         })
 
@@ -150,7 +159,6 @@ class detail extends React.Component {
 function mapStateToProps(state){
     return{
         $axios:state.commonReducer.axios,
-        ih:state.detailReducer.getih
     }
 }
 detail = connect(mapStateToProps)(detail)

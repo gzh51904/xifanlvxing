@@ -13,10 +13,8 @@ class schedule extends React.Component {
             start:'',
             end:''
         };
-        console.log(this.props)
     }
     componentWillReceiveProps({data}, nextContext) {
-            console.log(data)
         this.setState({
             title:data.product.icons_tour[0].title,
             start:data.product.departure_city,
