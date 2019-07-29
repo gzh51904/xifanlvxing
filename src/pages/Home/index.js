@@ -45,6 +45,7 @@ export default class index extends Component {
         }
 
         this.scrollFn = this.scrollFn.bind(this);
+        this.gotoDetail=  this.gotoDetail.bind(this)
     }
 
     //   请求数据
@@ -91,13 +92,20 @@ export default class index extends Component {
         
     }
 
+
     // 滑动事件函数，实现懒加载
-    async scrollFn() {
+    scrollFn() {
+
+        setTimeout(function () {
+
         // 可视区高度
         let height = document.documentElement.clientHeight;
 
         // 所有图片的节点
-        let aImage = document.getElementById('lazyUl').getElementsByTagName("img");
+
+        let aImage = document.getElementById('lazyUl') ?
+            document.getElementById('lazyUl').getElementsByTagName("img") : ''
+
         // console.log(aImage[4]);
         
         // 滚动的节点
@@ -106,6 +114,7 @@ export default class index extends Component {
         // 滚动的高度
         let scrollTop = main.scrollTop;
 
+
         // console.log(scrollTop);
         
         // 滑动触发滚动事件
@@ -113,26 +122,34 @@ export default class index extends Component {
         let h_form = document.getElementsByClassName('h_form')[0];
         let h_input = document.getElementsByClassName('h_input')[0];
         if(scrollTop>300){
-            h_form.style.background = "#CCC"
-            h_inputI.style.color = "#CCC"
-            h_input.style.background = "white"
+            if (h_form){
+                h_form.style.background = "#CCC"
+                h_inputI.style.color = "#CCC"
+                h_input.style.background = "white"
+            }
         }else{
-            h_inputI.style.color = "white"
-            h_form.style.background = "#F9F9F9"
-            h_input.style.background = ""
+            if (h_inputI) {
+                h_inputI.style.color = "white"
+                h_form.style.background = "#F9F9F9"
+                h_input.style.background = ""
+            }
+
         }
 
         // 滑动一定距离后出现返回顶部按钮
         let myBtn = document.getElementById('myBtn');
-        if(scrollTop>500){
-            myBtn.style.display = "block";
-        }else{
-            myBtn.style.display = "none";
+        if (myBtn){
+            if(scrollTop>500){
+                myBtn.style.display = "block";
+            }else{
+                myBtn.style.display = "none";
+            }
         }
 
         // 存储好第四张图片到顶部距离
         if(this.state.page.num === 1){
-            var aImageTop = aImage[ this.state.page.num * 6 -2 ].offsetTop
+            var aImageTop = aImage[ this.state.page.num * 6 -2 ] ?
+                aImage[ this.state.page.num * 6 -2 ].offsetTop : ''
             this.setState(this.state.aImageHeight = {num : aImageTop})
 
         }
@@ -149,7 +166,7 @@ export default class index extends Component {
             
 
 
-            await axios.get('https://m.tourscool.com/api/index/topsales',{
+            axios.get('https://m.tourscool.com/api/index/topsales',{
                 params:{
                     t: 1564066256,
                     page: this.state.page.num
@@ -169,6 +186,7 @@ export default class index extends Component {
                 )                                   //第一次满足条件后，改为 true，满足if条件
             })
         }
+        }.bind(this))
     }
     
     // 返回顶部函数
@@ -182,7 +200,14 @@ export default class index extends Component {
         
         
     }
-
+    gotoList(){
+        let {history} = this.props
+        history.push('/list')
+    }
+    gotoDetail(id){
+        let {history} = this.props
+        history.push({pathname:'detail',search:'?'+id})
+    }
     // 渲染
     render() {
         return (
@@ -239,7 +264,7 @@ export default class index extends Component {
             </div>
             <div className="h_ul">
                 <ul>
-                    <li>
+                    <li onClick={this.gotoList.bind(this)}>
                         <i>
                             <img  src={require('../../img/1.png')} alt=""/>
                         </i>
@@ -247,7 +272,7 @@ export default class index extends Component {
                             精品小团
                         </span>
                     </li>
-                    <li>
+                    <li onClick={this.gotoList.bind(this)}>
                         <i>
                             <img  src={require('../../img/2.png')} alt=""/>
                         </i>
@@ -255,7 +280,7 @@ export default class index extends Component {
                             当地玩乐
                         </span>
                     </li>
-                    <li>
+                    <li onClick={this.gotoList.bind(this)}>
                         <i>
                             <img  src={require('../../img/3.png')} alt=""/>
                         </i>
@@ -263,7 +288,7 @@ export default class index extends Component {
                             当地跟团
                         </span>
                     </li>
-                    <li>
+                    <li onClick={this.gotoList.bind(this)}>
                         <i>
                             <img  src={require('../../img/4.png')} alt=""/>
                         </i>
@@ -271,7 +296,7 @@ export default class index extends Component {
                             个性定制
                         </span>
                     </li>
-                    <li>
+                    <li onClick={this.gotoList.bind(this)}>
                         <i>
                             <img  src={require('../../img/5.jpg')} alt=""/>
                         </i>
@@ -312,7 +337,7 @@ export default class index extends Component {
                         <ul id="lazyUl">
                             {
                                 this.state.lazyDatas.map((item,idx)=>{
-                                    return <li key={idx}>
+                                    return <li key={idx}  id={item.product_id} onClick={this.gotoDetail.bind(this,item.product_id)}>
                                         <img src={item.image} alt={idx}/>
                                         <div className="list_t">
                                             {item.name}
