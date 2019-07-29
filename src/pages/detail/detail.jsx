@@ -39,7 +39,7 @@ class detail extends React.Component {
             }
         }.bind(this))
         //发起请求
-        let id = 978
+        let id = this.props.location.search.replace('?','')
         let url = 'https://m.tourscool.com/api/product/' + id
         this.setState({
             id
@@ -99,7 +99,7 @@ class detail extends React.Component {
                     <NavBar
                         mode="light"
                         icon={<Icon type="left"/>}
-                        onLeftClick={() => console.log('onLeftClick')}
+                        onLeftClick={() => this.props.history.push('home')}
                         rightContent={[
 
                         ]}

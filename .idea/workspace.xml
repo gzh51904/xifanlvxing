@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc1c9496-538d-4439-831a-ce4ace95abc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/List/List.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/List/List.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/Login.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/detail/detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/detail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/outline/outline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/outline/outline.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/outline/outline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/outline/outline.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,22 +17,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/List/List.jsx">
+        <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="41" selection-end-column="26" />
+            <state relative-caret-position="308">
+              <caret line="101" column="72" selection-start-line="101" selection-start-column="72" selection-end-line="101" selection-end-column="72" />
               <folding>
-                <element signature="e#1#26#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/List/List.scss">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="90" column="28" lean-forward="true" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
+            <state relative-caret-position="364">
+              <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/Home/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="339" column="129" selection-start-line="339" selection-start-column="129" selection-end-line="339" selection-end-column="129" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,18 +129,19 @@
         <option value="$PROJECT_DIR$/src/pages/detail/sch_detail/sch_detail.jsx" />
         <option value="$PROJECT_DIR$/src/pages/detail/outline/outline.scss" />
         <option value="$PROJECT_DIR$/src/pages/detail/outline/outline.jsx" />
-        <option value="$PROJECT_DIR$/src/pages/detail/detail.jsx" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/pages/List/List.scss" />
         <option value="$PROJECT_DIR$/src/pages/List/List.jsx" />
+        <option value="$PROJECT_DIR$/src/pages/Home/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/detail/detail.jsx" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-339" />
-    <option name="y" value="303" />
+    <option name="x" value="-232" />
+    <option name="y" value="102" />
     <option name="width" value="1915" />
-    <option name="height" value="1103" />
+    <option name="height" value="1073" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -186,15 +194,7 @@
               <item name="E:\1904\xifanlvxing" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="detail" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="sch_detail" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="xifanlvxing" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="E:\1904\xifanlvxing" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="List" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -255,15 +255,15 @@
       <workItem from="1563945383888" duration="55000" />
       <workItem from="1563945453433" duration="102780000" />
       <workItem from="1564187626434" duration="6358000" />
-      <workItem from="1564361761848" duration="34159000" />
+      <workItem from="1564361761848" duration="36776000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198843000" />
+    <option name="totallyTimeSpent" value="201460000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-139" y="154" width="1532" height="882" extended-state="0" />
+    <frame x="-185" y="82" width="1532" height="858" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21390374" />
@@ -306,16 +306,6 @@
     <entry file="file://$PROJECT_DIR$/src/pages/detail/pricedetail/pricedetail.jsx" />
     <entry file="file://$PROJECT_DIR$/node_modules/redux/index.d.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -420,16 +410,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/DateTrip/hhh.html" />
-    <entry file="file://$PROJECT_DIR$/src/pages/Home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -591,16 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/DateTrip/date_trip.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-196">
@@ -636,19 +606,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/List/List.scss">
+    <entry file="file://$PROJECT_DIR$/src/pages/List/List.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="90" column="28" lean-forward="true" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
+        <state relative-caret-position="223">
+          <caret line="40" column="68" selection-start-line="40" selection-start-column="68" selection-end-line="40" selection-end-column="68" />
+          <folding>
+            <element signature="e#1#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/List/List.jsx">
+    <entry file="file://$PROJECT_DIR$/src/pages/List/List.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="41" selection-end-column="26" />
+        <state relative-caret-position="644">
+          <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
           <folding>
-            <element signature="e#1#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="339" column="129" selection-start-line="339" selection-start-column="129" selection-end-line="339" selection-end-column="129" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/detail/detail.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="101" column="72" selection-start-line="101" selection-start-column="72" selection-end-line="101" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
