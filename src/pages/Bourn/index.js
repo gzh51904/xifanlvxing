@@ -157,7 +157,7 @@ class Index extends Component {
               <Route path={path + '/dny'} component={Dny}/>
               <Route path={path + '/ozh'} component={Ozh}/>
               <Route path={path + '/sbzh'} component={SBzh}/>
-              <Redirect from="/" to={path + '/hot'} exact/>
+              <Redirect from={path} to={path + '/hot'} exact/>
             </Switch>
           </MyContext.Provider>  
           </div>

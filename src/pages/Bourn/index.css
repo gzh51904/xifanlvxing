@@ -12,11 +12,13 @@
     align-items: center;
     background: #fff;
     justify-content: center;
+    box-shadow: 0 0.053333rem 0.16rem rgba(0, 0, 0, 0.14);
 }
 
 .bourn-top p {
     height: 100%;
     line-height: 44px;
+    margin-right: 10px;
 }
 
 .bourn-footer {
@@ -61,6 +63,5 @@
 .bourn-footer-right {
     flex: 1;
     background: #fff;
-    padding: 10px 5px 0 10px;
-    overflow: hidden;
+    padding: 10px 10px 0 10px;
 }
