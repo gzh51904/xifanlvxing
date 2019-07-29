@@ -11,6 +11,8 @@ import Bourn from './pages/Bourn'
 import Consult from './pages/Consult'
 import Mine from './pages/Mine'
 import DateTrip from './pages/DateTrip/date_trip'
+import Login from './pages/Login/index'
+import List from './pages/List/List'
 
 import {connect} from "react-redux";
 
@@ -65,6 +67,8 @@ class App extends Component {
             <Route path="/mine" component={Mine}/>
             <Route path="/detail" component={detail}/>
             <Route path="/dateTrip" component={DateTrip}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/list" component={List}/>
             <Route path="/404" render={()=><div>oh no 404</div>}/>
             <Redirect from="/" to="/home" exact/>
             <Redirect from="/*" to="/404"/>

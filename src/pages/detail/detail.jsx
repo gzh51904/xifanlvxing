@@ -39,7 +39,7 @@ class detail extends React.Component {
             }
         }.bind(this))
         //发起请求
-        let id = 3160
+        let id = 978
         let url = 'https://m.tourscool.com/api/product/' + id
         this.setState({
             id

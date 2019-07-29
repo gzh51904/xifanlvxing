@@ -10,15 +10,29 @@ class  outline extends React.Component{
         this.state={
             jdnum:'',
             day:'',
+            whatDay:'D1',
+            sy:'',
         }
+    }
+    goPrice(){
+        let price_detail = document.getElementById('price_detail');
+        window.scrollTo(0,price_detail.offsetTop-120)
+
+    }
+    goNotic(){
+        window.scrollTo(0,500000)
+    }
+    goDay(){
+        window.scrollTo(0,this.state.sy+5)
+
     }
     render() {
         return <div className="outline">
             <div id="hhh">
                 <nav ref="xxx">
-                    <div className="active">{this.state.day}天行程<i>D1</i></div>
-                    <div>费用明细</div>
-                    <div>注意事项</div>
+                    <div className="active" onClick={this.goDay.bind(this)}>{this.state.day}天行程<i id="showDay">{this.state.whatDay}</i></div>
+                    <div onClick={this.goPrice.bind(this)}>费用明细</div>
+                    <div onClick={this.goNotic.bind(this)}>注意事项</div>
                 </nav>
             </div>
             {/*固定定位后防止屏幕抖动*/}
@@ -33,9 +47,10 @@ class  outline extends React.Component{
             </div>
         </div>
     }
-    componentDidMount() {
-
+    componentWillUnmount() {
+        window.onscroll = null
     }
+
     componentWillReceiveProps({data}, nextContext) {
         //获取距离
 
@@ -44,6 +59,10 @@ class  outline extends React.Component{
             let Mih = window.innerHeight
             let getnav = document.getElementById('hhh');
             let ih = this.refs.xxx ? this.refs.xxx.offsetTop:''
+
+            let sd_item = document.getElementsByClassName('sd_item')
+            let itemnum = sd_item.length
+
             let price_detail = document.getElementById('price_detail');
             let pricey = price_detail.offsetTop -Mih
             let tabs = getnav.children[0].children
@@ -53,9 +72,51 @@ class  outline extends React.Component{
 
             let header = document.getElementsByTagName('header')[0];
             let sy = ih - header.offsetHeight;
+            this.setState({
+                sy
+            })
             //显示空盒子防止固定定位屏幕抖动
             let preout = document.getElementById('preout')
-            window.onscroll = function () {
+            let $this = this
+
+            let num = '1'
+            let istrue = true
+            let isok = true
+
+            window.onscroll = function (e) {
+                if (this.scrollY >= sd_item[num].offsetTop - 95) {
+                    if (istrue){
+                        istrue = false
+                        num++
+                        if ($this.state.whatDay.replace('D','')!=num) {
+                            $this.setState({
+                                whatDay:'D'+(num)
+                            })
+                        }
+                        if (num>=itemnum){
+                            num = itemnum - 1
+                        }
+                        istrue = true
+                    }
+                }
+                if (this.scrollY < sd_item[num].offsetTop - 95) {
+                        if (isok){
+                            isok = false
+                            $this.setState({
+                                whatDay:'D'+(num)
+                            })
+                            if (num<=itemnum){
+                                num--
+                                if (num<=0) {
+                                    num=1
+                                }
+                            }
+                            isok = true
+                        }
+
+
+                }
+
                 if (parseInt(this.scrollY)>=sy){
                     getnav.setAttribute('class','fixed')
                     preout.style.display = 'block'
