@@ -63,7 +63,7 @@ export default class index extends Component {
             console.log(error);
         })
     }
-
+    
     // 生命周期
     componentDidMount() {
         // simulate img loading
@@ -92,7 +92,7 @@ export default class index extends Component {
     }
 
     // 滑动事件函数，实现懒加载
-    scrollFn() {
+    async scrollFn() {
         // 可视区高度
         let height = document.documentElement.clientHeight;
 
@@ -132,7 +132,7 @@ export default class index extends Component {
 
         // 存储好第四张图片到顶部距离
         if(this.state.page.num === 1){
-            var aImageTop = aImage[ this.state.page.num * 5 ].offsetTop
+            var aImageTop = aImage[ this.state.page.num * 6 -2 ].offsetTop
             this.setState(this.state.aImageHeight = {num : aImageTop})
 
         }
@@ -149,7 +149,7 @@ export default class index extends Component {
             
 
 
-            axios.get('https://m.tourscool.com/api/index/topsales',{
+            await axios.get('https://m.tourscool.com/api/index/topsales',{
                 params:{
                     t: 1564066256,
                     page: this.state.page.num
@@ -160,7 +160,7 @@ export default class index extends Component {
                 this.setState(
                     this.state.lazyDatas = [...this.state.lazyDatas,...db],()=>{
 
-                        let aImageTop = aImage[ this.state.page.num * 5+1 ].offsetTop;
+                        let aImageTop = aImage[ this.state.page.num * 6 - 2 ].offsetTop;
                         this.setState(this.state.aImageHeight = {num : aImageTop})
                     }
                 )
@@ -340,7 +340,7 @@ export default class index extends Component {
                 
                 if(main.scrollTop>0){
                     let timer = setInterval(function () {
-                        main.scrollTop = main.scrollTop - 160;
+                        main.scrollTop = main.scrollTop - 800;
                         if(main.scrollTop === 0){
                             clearInterval(timer)
                         }

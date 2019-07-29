@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function index() {
-  return (
-    <div>
-      哈哈
-    </div>
-  )
+export default class index extends Component {
+  render() {
+    return (
+      <div>
+        哈哈
+      </div>
+    )
+  }
 }
