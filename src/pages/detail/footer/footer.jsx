@@ -2,8 +2,26 @@
 
 import React from 'react'
 import './footer.scss'
-
+import {withRouter} from 'react-router-dom'
 class footer extends React.Component{
+    constructor(){
+        super()
+        this.state ={
+            id:''
+        }
+        this.goto = this.goto.bind(this)
+    }
+    componentWillReceiveProps({data}, nextContext) {
+        this.setState({
+            id:data
+        })
+    }
+
+    goto(){
+        let {history} = this.props
+        console.log(this.props,history)
+        history.push({pathname:'/dateTrip',search:'?'+this.state.id})
+    }
     render() {
         return(
             <div  className="detail_footer">
@@ -21,7 +39,7 @@ class footer extends React.Component{
                         <span>在线咨询</span>
                     </div>
                     <div className="yuding">
-                        <div className="ybuy">立即预定</div>
+                        <div className="ybuy" onClick={this.goto.bind(this)}>立即预定</div>
                     </div>
                 </div>
             </div>
@@ -29,4 +47,5 @@ class footer extends React.Component{
     }
 
 }
+footer = withRouter(footer)
 export default footer

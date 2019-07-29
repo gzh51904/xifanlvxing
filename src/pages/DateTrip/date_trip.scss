@@ -51,11 +51,12 @@
       width:14.28%;
       text-align: center;
       .price{
-        color:black;
-        fontSize:12px;
+        color:#000000;
         position: relative;
-        top: 4px;
+        top: 8px;
         padding-top: 20px;
+        font-size: 12px;
+        font-weight: 300;
       }
       .active{
         color: red;

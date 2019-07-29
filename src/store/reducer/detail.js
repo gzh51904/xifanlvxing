@@ -1,6 +1,7 @@
 
 let initState = {
-    homePrice:''
+    homePrice:'',
+    daynum:''
 }
 
 let reducer = (state=initState,action)=>{
@@ -9,6 +10,11 @@ let reducer = (state=initState,action)=>{
             return {
                 ...state,
                 homePrice:action.payload
+            }
+        case 'daynum':
+            return {
+                ...state,
+                daynum:action.payload
             }
         default:{
             return state
