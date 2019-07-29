@@ -11,7 +11,6 @@ class group extends React.Component{
         }
     }
     componentWillReceiveProps({data}, nextContext) {
-        console.log(data)
         this.setState({
             month:data.top_price[0].month,
             days:data.top_price[0].days,

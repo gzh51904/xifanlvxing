@@ -9,7 +9,7 @@ class description extends React.Component{
         }
     }
     componentWillReceiveProps({data}, nextContext) {
-        console.log(data)
+
         this.setState({
             content:data.product.small_description
         })

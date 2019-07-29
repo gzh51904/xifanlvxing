@@ -1,14 +1,20 @@
 
 let initState = {
-    homePrice:''
+    isSelect : '',
+    price : ''
 }
 
 let reducer = (state=initState,action)=>{
     switch (action.type) {
-        case 'homePrice':
+        case 'isSelect':
             return {
                 ...state,
-                homePrice:action.payload
+                isSelect:action.payload
+            }
+        case 'price':
+            return {
+                ...state,
+                price:action.payload
             }
         default:{
             return state

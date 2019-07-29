@@ -1,0 +1,94 @@
+.date_trip{
+  .am-navbar{
+    margin-bottom: 4px;
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.15);
+  }
+  ul{
+    overflow: hidden;
+    li{
+      float: left;
+    }
+  }
+  .daylist{
+    padding: 0 12.5px;
+    background: #fff;
+    .monthactive{
+      border-bottom: 2px solid #4bb1f5;
+      color: #4bb1f5;
+    }
+    li{
+      width: 58px;
+      height: 54px;
+      text-align: center;
+      line-height: 54px;
+    }
+  }
+  .week{
+    background: #ebebeb;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    display: flex;
+    justify-content: space-around;
+    li:nth-child(1){
+      color: red;
+    }
+    li:nth-last-child(1){
+      color: red;
+    }
+  }
+  .days{
+    background: #fff;
+    padding-top: 20px;
+
+    .day{
+      color: rgb(201, 201, 201);
+      margin-bottom: 12.5px;
+      height: 60px;
+      padding-top: 5px;
+      width:14.28%;
+      text-align: center;
+      .price{
+        color:black;
+        fontSize:12px;
+        position: relative;
+        top: 4px;
+        padding-top: 20px;
+      }
+      .active{
+        color: red;
+      }
+    }
+    .activeLi{
+      background: #4bb1f5 ;
+      border-radius: 5px;
+      .active{
+        color: #fff;
+      }
+      .price{
+        color: #fff;
+      }
+    }
+  }
+  .bottom{
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    div{
+      flex: 1;
+      height: 24.5px;
+    }
+    div:nth-child(2){
+      text-align: right;
+      color: #ff0000;
+      font-size: 12px;
+    }
+    #goandback{
+      color: #434343;
+      font-weight: 400;
+      font-size: 12px;
+    }
+  }
+}
