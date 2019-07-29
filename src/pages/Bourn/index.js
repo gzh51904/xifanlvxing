@@ -1,11 +1,68 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './index.css'
+import { Switch,Route,NavLink,withRouter,Redirect } from 'react-router-dom'
+import MyContext from './context'
+// 引入组件路径
+import Hot from './Hot'
+import Meixi from './Meixi'
+import Meid from './Meid'
+import Jia from './Jia'
+import Xia from './Xia'
+import Riben from './Riben'
+import Dny from './Dny'
+import Ozh from './Ozh'
+import SBzh from './SBzh'
 
-export default class index extends Component {
+class Index extends Component {
+  constructor(){
+    super();
+    this.state = {
+      navs:[
+        {
+          name: 'Hot',
+          path: '/hot',
+          title: '热门推荐',
+        },{
+          name: 'Meixi',
+          path: '/meixi',
+          title: '美西',
+        },{
+          name: 'Meid',
+          path: '/meid',
+          title: '美东',
+        },{
+          name: 'Jia',
+          path: '/jia',
+          title: '加拿大',
+        },{
+          name: 'Xia',
+          path: '/xia',
+          title: '夏威夷',
+        },{
+          name: 'Riben',
+          path: '/riben',
+          title: '日本',
+        },{
+          name: 'Dny',
+          path: '/dny',
+          title: '东南亚',
+        },{
+          name: 'Ozh',
+          path: '/ozh',
+          title: '欧洲',
+        },{
+          name: 'SBzh',
+          path: '/sbzh',
+          title: '澳新',
+        }
+      ],
+      allData:[],
+      
+    }
+  }
   // 移除main的overflow
   async componentWillMount(){
-    console.log(222);
     
     setTimeout(function(){
       let main = document.querySelector('.main');
@@ -15,32 +72,44 @@ export default class index extends Component {
       
     }.bind(this))
 
-  }
-  
-  async componentDidMount(){
-    console.log(111)
-    
-    await axios.get('/xifan/api/destination?',{
-        params:{
-          t:1564323635
-        }
-    }).then((datas)=>{
-        console.log(datas);
-        // this.setState(
-        //     this.state = { lazyDatas : datas.data.data}
-        // )
+      
+    await axios.get('https://www.easy-mock.com/mock/5d3e90a9c07d166c1c4eed4a/example/query',
+    {}).then((datas)=>{
+        // console.log(datas.data.data);
+        this.setState(
+          this.state.allData = datas.data.data
+        )
     }).catch(function(error){
         console.log(error);
     })
+
+     // 第一个高亮
+     let ul = document.querySelector('.bourn-footer-left-ul');
+     let lis = ul.getElementsByTagName('li');
+     lis[0].style.background = "#fff"
   }
 
   //移除main的overflow
   componentWillUnmount(){
     let main = document.querySelector('.main')
-    
     main.style.overflow = "auto"
   }
+
+  // 点击高亮函数
+  activeLi(idx){
+    let ul = document.querySelector('.bourn-footer-left-ul');
+    let lis = ul.getElementsByTagName('li');
+    for(var i = 0; i < lis.length; i++){
+      lis[i].style.background = "#F1F1F1";
+    }
+    lis[idx].style.background = "#fff";
+  }
   render() {
+
+    let navs = this.state.navs;
+    let allData = this.state.allData;
+    let {url,path} = this.props.match;
+
     return (
       <div className="bourn">
         <div className="bourn-top">
@@ -56,13 +125,49 @@ export default class index extends Component {
         </div>
         <div className="bourn-footer">
           <div className="bourn-footer-left">
-            <ul>
-              <li></li>
-            </ul>
+            
+              <ul className="bourn-footer-left-ul">
+                {
+                  navs.map((item,idx)=>{
+                    return <NavLink 
+                      to={url + item.path}
+                      style={{color:'black'}}
+                      key={idx}
+                      onClick={this.activeLi.bind(this,idx)}
+                    >
+                      <li>
+                        <span>
+                          {item.title}
+                        </span>
+                      </li>
+                    </NavLink>
+                  })
+                }
+              </ul>
           </div>
-          <div className="bourn-footer-right"></div>
+          <div className="bourn-footer-right">
+          <MyContext.Provider value={{data:this.state.allData}}>
+            <Switch>
+              <Route path={path + '/hot'} component={Hot} />
+              <Route path={path + '/meixi'} component={Meixi} />
+              <Route path={path + '/meid'} component={Meid}/>
+              <Route path={path + '/jia'} component={Jia}/>
+              <Route path={path + '/xia'} component={Xia}/>
+              <Route path={path + '/riben'} component={Riben}/>
+              <Route path={path + '/dny'} component={Dny}/>
+              <Route path={path + '/ozh'} component={Ozh}/>
+              <Route path={path + '/sbzh'} component={SBzh}/>
+              <Redirect from="/" to={path + '/hot'} exact/>
+            </Switch>
+          </MyContext.Provider>  
+          </div>
         </div>
       </div>
     )
   }
 }
+
+
+Index = withRouter(Index)
+
+export default Index
