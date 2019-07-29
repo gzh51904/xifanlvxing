@@ -30,7 +30,7 @@ class price  extends React.Component{
 
 
     render() {
-        return <div>
+        return <div style={{height:'20px'}}>
             {/*底部*/}
             {!this.state.isSelect?
             <div className="bottom_price">

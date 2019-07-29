@@ -26,18 +26,25 @@ class detail extends React.Component {
             data:'',
             title:'',
             ih:'',//接收从组件
+            id:'',
+            isOk:''
         };
     }
     componentWillMount() {
-        //如果当前是detail，清除main样式
+        //如果当前是detail，清除main样式及底部tab
         setTimeout(function () {
             let main = document.querySelector('.main')
             if (this.props.match.path === '/detail'){
-                main.style.overflow = 'visible'
+                main.style.overflow = 'visible';
             }
         }.bind(this))
         //发起请求
-        let data = this.props.$axios.get('https://m.tourscool.com/api/product/1482?t=1564193550',{
+        let id = 3160
+        let url = 'https://m.tourscool.com/api/product/' + id
+        this.setState({
+            id
+        })
+        let data = this.props.$axios.get(url,{
         }).then(({data})=>{
             this.setState({
                 data:data.data,
@@ -50,9 +57,10 @@ class detail extends React.Component {
                 two:homePrice.price_double,
                 kid:homePrice.price_kids
             }
-            console.log(obj)
+            let daynum = data.data.itinerary.duration_days
             store.dispatch({type:'homePrice',payload:obj})
-            console.log(this.state.data)
+            store.dispatch({type:'daynum',payload:daynum})
+
         })
 
     }
@@ -63,7 +71,8 @@ class detail extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        if (nextState.data===this.state.data) {
+        console.log(nextState.data,this.state.data)
+        if (nextState.data == this.state.data) {
             return false
         }
         return true
@@ -72,19 +81,15 @@ class detail extends React.Component {
     componentDidMount() {
 
     }
-
-
-    onSelect = (opt) => {
-        // console.log(opt.props.value);
-        this.setState({
-            visible: false,
-            selected: opt.props.value,
-        });
-    };
     handleVisibleChange = (visible) => {
         this.setState({
             visible,
         });
+    };
+    //回到首页
+    onSelect = (opt) => {
+       let {history} = this.props
+        history.push('/home')
     };
     render() {
         return (
@@ -105,7 +110,7 @@ class detail extends React.Component {
                             // visible={this.state.visible}
                             overlay={[
                                 (<div key="3" className="sanjiaoxing"></div>),
-                                (<Item key="4" value="scan"  data-seed="logId"><img src="img/dhome.png" alt=""/>首页</Item>),
+                                (<Item key="4" value="scan"  data-seed="logId" ><img src="img/dhome.png" alt="" />首页</Item>),
                                 (<Item key="5" value="special"  style={{ whiteSpace: 'nowrap' }}><img src="img/dloc.png" alt=""/>目的地</Item>),
                                 (<Item key="6" value="button ct" >
                                     <span style={{ marginRight: 5 }}><img src="img/duser.png" alt=""/>个人中心</span>
@@ -151,7 +156,7 @@ class detail extends React.Component {
                     <Price data={this.state.data}/>
                 </div>
                 {/*    底部*/}
-                <Footer></Footer>
+                <Footer data={this.state.id}></Footer>
             </div>
         );
     }
@@ -162,4 +167,6 @@ function mapStateToProps(state){
     }
 }
 detail = connect(mapStateToProps)(detail)
+
+
 export default detail

@@ -5,11 +5,14 @@ import $axios from 'axios';
 import store from '../../store/store'
 import Bottom from './bottom_price/bottom_price'
 import Room from './room/room'
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
 
 class dateTrip extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            years:'',
             data:'',
             months: '',
             nowmonth:'',
@@ -19,13 +22,17 @@ class dateTrip extends React.Component {
             hasdays:'',
             dayarr:'',
             allPrice:'',
+            daynum:'',//旅游天数
+            maxDay:''//当前月份最大天数
         };
+        this.goto = this.goto.bind(this)
     }
 
     // 获得每个月的日期有多少，注意 month - [0-11]
     //item为点击的月份如7
     getMonthCount(year, month,index=0,item) {
         //点击月份高亮
+        console.log(year,month)
         let monthList = document.querySelectorAll('.daylist li');
         for (let i = 0; i < monthList.length; i++){monthList[i].setAttribute('class','')}
         monthList[index].setAttribute('class','monthactive')
@@ -54,6 +61,7 @@ class dateTrip extends React.Component {
         let newarr = Array.from(new Array(count), (item, value) => {
             return value + 1
         });
+
         // 获得每个月1号是星期几，注意 day - [0-6]
         let getWeekday = (year, month) => {
             let date = new Date(year, month, 1);
@@ -69,8 +77,9 @@ class dateTrip extends React.Component {
         //返回一个可以直接渲染的数组
         this.setState({
             getCount:newarr,
+            maxDay:newarr[newarr.length-1]
         })
-
+        console.log(item,newarr[newarr.length-1])
         // console.log(this.state.data[index].days.map(item=>{return item.day}))
     }
     //选择事件
@@ -85,46 +94,60 @@ class dateTrip extends React.Component {
         //显示往返信息
         let goandback = document.getElementById('goandback');
         let month = this.state.nowmonth;
-        let day = ev.target.parentNode.firstChild.innerText
+        let maxDay = this.state.maxDay;
+        let day = ev.target.parentNode.firstChild.innerText -0;
+        let godaynum = this.state.daynum - 1;
+        let backday = day + godaynum
+        let backmonth = month
+        if (day + godaynum>maxDay){
+            backday = day + godaynum - maxDay
+            backmonth++
+            if ( backmonth > 12) {backmonth=1}
+        }
         for (let i = 0; i < 1;i++){
-            goandback.innerText = `${month}月${day}日出发-${month}月${day-0+1}日返`
+            goandback.innerText = `${month}月${day}日出发-${backmonth}月${backday}日返`
         }
         return ev.target.parentNode.setAttribute('class','day activeLi')
     }
 
     componentWillMount() {
+        console.log(this.props.location.search.replace('?',''))
+        let id = this.props.location.search.replace('?','')
         //请求数据
-        $axios.get('https://m.tourscool.com/api/product/1482/calendar',{
+        $axios.get(`https://m.tourscool.com/api/product/${id}/calendar`,{
 
         }).then(({data})=>{
             console.log(data)
             this.setState({
                 data:data.data,
-                months:data.data.map(item=>{return item.month})
+                months:data.data.map(item=>{return item.month}),
+                years:data.data.map(item=>{return item.years})
             })
             //初始化数据
-            this.getMonthCount(2019, this.state.months[0]-1,0,this.state.months[0])
+            this.getMonthCount(this.state.years[0], this.state.months[0]-1,0,this.state.months[0])
 
         })
 
-
-        //如果当前是date，清除底部
-        setTimeout(function () {
-            let footer = document.querySelector('.footer')
-            if (this.props.match.path === '/dateTrip'){
-                footer.style.display = 'none'
-            }
-        }.bind(this))
+        //把全局状态保存到本地
+        //防止刷新数据丢失
+        if (this.props.daynum) {
+            localStorage.setItem("daynum", JSON.stringify(this.props.daynum));
+        }
+        this.setState({
+            daynum:JSON.parse(localStorage.getItem('daynum'))
+        })
     }
     componentWillUnmount() {
-        //还原
-        let footer = document.querySelector('.footer')
-        footer.style.display = 'block'
     }
     componentWillReceiveProps(nextProps, nextContext) {
 
     }
-
+    //返回
+    goto(){
+        let {history} = this.props
+        let id = this.props.location.search
+        history.push({pathname:'/detail',search:id})
+    }
 
     render() {
         return <div className="date_trip">
@@ -133,7 +156,7 @@ class dateTrip extends React.Component {
                 <NavBar
                     mode="light"
                     icon={<Icon type="left" />}
-                    onLeftClick={() => console.log('onLeftClick')}
+                    onLeftClick={this.goto.bind(this)}
                 >选择日期和人数</NavBar>
             </div>
             {/*月份*/}
@@ -141,7 +164,7 @@ class dateTrip extends React.Component {
                 {
                     this.state.months?
                     this.state.months.map((item,index) => {
-                        return <li key={item} onClick={this.getMonthCount.bind(this, 2019, item-1,index,item)}>{item}月</li>
+                        return <li key={item} onClick={this.getMonthCount.bind(this, this.state.years[index], item-1,index,item)}>{item}月</li>
                     }):''
 
                 }
@@ -184,12 +207,18 @@ class dateTrip extends React.Component {
             <Room/>
             {/*    底部价格*/}
             <Bottom/>
-            <div style={{height:'82.5px'}}></div>{/*//撑开*/}
 
         </div>
     }
 
 }
 
-
+//映射全局数据
+function mapStateToProps(state){
+    return{
+        daynum:state.detailReducer.daynum
+    }
+}
+dateTrip = connect(mapStateToProps)(dateTrip)
+dateTrip = withRouter(dateTrip)
 export default dateTrip

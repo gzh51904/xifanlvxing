@@ -52,8 +52,7 @@ class  price extends React.Component{
                 </div>
                 <div className="price_sm">
                     <h3>价格说明</h3>
-                    <div className="price_sm_info">
-                        {this.state.price_notice}
+                    <div className="price_sm_info" dangerouslySetInnerHTML={{__html:this.state.price_notice}}>
                     </div>
                 </div>
                 <div className="price_sm">
