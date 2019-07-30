@@ -11,8 +11,10 @@ import Bourn from './pages/Bourn'
 import Consult from './pages/Consult'
 import Mine from './pages/Mine'
 import DateTrip from './pages/DateTrip/date_trip'
-import Login from './pages/Login/index'
+// import Login from './pages/Login/index'
 import List from './pages/List/List'
+
+import Login from './pages/Login'
 
 import {connect} from "react-redux";
 
