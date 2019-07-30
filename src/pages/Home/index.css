@@ -186,18 +186,18 @@
 
 .h_lists ul{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .h_lists ul li{
-    width: 170px;
+    width: 48%;
     height: 214px;
     border-radius: 6px;
 }
 
 .h_lists ul li img{
-    width: 170px;
+    width: 100%;
     height: 120px;
     border-radius: 6px;
 }
