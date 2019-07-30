@@ -50,10 +50,12 @@
       padding-top: 5px;
       width:14.28%;
       text-align: center;
+      position: relative;
       .price{
         color:#000000;
-        position: relative;
+        position: absolute;
         top: 8px;
+        transform: translate(-50%);
         padding-top: 20px;
         font-size: 12px;
         font-weight: 300;

@@ -93,7 +93,7 @@ export default class index extends Component {
         
         
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         let main = document.getElementsByClassName('main')[0];
         main.addEventListener("scroll", this.scrollFn, false);
     }
