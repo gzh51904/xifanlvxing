@@ -1,0 +1,77 @@
+.sd_box{
+  background: #fff;
+  padding-top: 18px;
+  h3 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #191919;
+    margin-bottom: 20px;
+  }
+  .sd_item{
+    padding-left: 15px;
+    padding-bottom: 10px;
+    .title{
+      margin-bottom: 11px;
+      .title_icon{
+        background:#f48206;
+        color: #fff;
+        padding: 1px;
+        font-size: 12px;
+        border-radius: 7px;
+        position: relative;
+        display: inline-block;
+        width: 23px;
+        height: 16px;
+        text-align: center;
+        margin-right: 8px;
+        top: -2px;
+      }
+    }
+    .title_t{
+      img{
+        width: 14px;
+        height: 14px;
+      }
+      span{
+        margin-left: 5px;
+        color: #191919;
+        font-weight: 300;
+        font-size: 14px;
+      }
+    }
+    .content{
+      padding: 6px 9px 12px 16.5px;
+      color: #5e5e5e;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 18px;
+      position: relative;
+      .swiper{
+          overflow: auto;
+        margin-bottom: 12px;
+        img{
+          width: 160px;
+          height: 110px;
+        }
+        ul{
+          display: flex;
+          overflow: auto;
+          li{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    .content::before{
+      content: "";
+      position: absolute;
+      left: 6px;
+      top:1px;
+      width: 1px;
+      background: #ddd;
+      height: 100%;
+    }
+  }
+}
+

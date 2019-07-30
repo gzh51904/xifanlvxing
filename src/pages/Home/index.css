@@ -1,0 +1,275 @@
+.home{
+    /* position: relative; */
+    overflow: auto;
+    padding-bottom: 60px;
+    touch-action: pan-y;
+}
+.h_top {
+    width: 100%;
+    height: 210px;
+}
+
+.h_banner {
+    width: 100%;
+    height: 100%;
+}
+
+.h_top .h_banner {
+    margin: 0;
+    width: 100%;
+}
+
+.h_input{
+    width: 100%;
+    height: 44px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.h_form{
+    width: 83%;
+    height: 86%;
+    background: #F9F9F9;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8
+}
+.h_center{
+    width: 94%;
+    height: 24px;
+    /* background: pink; */
+    display: flex;
+    align-items: center;
+    
+}
+.h_top .am-carousel-wrap-dot > span{
+    color: blue !important;
+}
+
+.h_lazy{
+    flex: 1;
+}
+
+.h_ul {
+    width: 100%;
+    height: 162px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.h_ul ul {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.h_ul ul li {
+    width: 68px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.h_ul ul li span {
+    font-size: 12px;
+}
+
+.h_ul ul li img {
+    width: 44px;
+    height: 44px;
+}
+
+.h_ulf {
+    width: 100%;
+    height: 28px;
+}
+
+/* 目的地 */
+.h_bourn {
+    width: 100%;
+    height: 272px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h_bourn_c {
+    width: 94%;
+    height: 96%;
+    display: flex;
+    flex-direction: column;
+}
+
+.h_bourn_t {
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.h_bourn_t h2 {
+    font-size: 20px;
+}
+
+.h_bourn_t p {
+    font-size: 12px;
+    color: #5e5e5e;
+}
+
+.h_bourn_b {
+    width: 100%;
+    flex: 1;
+}
+
+.h_bourn_b ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.h_bourn_b ul li {
+    width: 80px;
+    height: 96px;
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.h_bourn_b ul li img {
+    border-radius: 6px;
+    width: 80px;
+    height: 60px;
+}
+
+.h_bourn_b ul li span {
+    margin-top: 6px;
+    font-size: 10px;
+}
+
+.kongBai{
+    width: 100%;
+    height: 6px;
+    background: #ccc;
+}
+
+.h_lazy{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.h_lists{
+    width: 94%;
+}
+
+.h_lists h3{
+    height: 50px;
+    font-size: 20px;
+    font-weight: normal;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #191919;
+}
+
+.h_lists ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.h_lists ul li{
+    width: 170px;
+    height: 214px;
+    border-radius: 6px;
+}
+
+.h_lists ul li img{
+    width: 170px;
+    height: 120px;
+    border-radius: 6px;
+}
+
+.list_t{
+    width: 100%;
+    height: 34px;
+    font-size: 14px;
+    margin-top: 6px;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;/*超出4行显示省略号*/
+    overflow: hidden;
+}
+
+.h_lists p{
+    height: 15px;
+    margin-top: 6px;
+}
+
+.h_lists p span{
+    display: inline-block;
+    width: 54px;
+    height: 16px;
+    border-radius: 6px;
+    background: #ccc;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.list_b{
+    height: 30px;
+
+}
+
+.list_b{
+    height: 30px;
+    line-height: 30px;
+    margin-top: 4px;
+    font-weight: 600;
+}
+.list_b span:nth-child(1){
+    font-size: 16px;
+    color: #ff0000;
+}
+.list_b span:nth-child(2){
+    font-size: 12px;
+    color: #ff0000;
+    margin-left: 6px;
+}
+
+/* 返回顶部 */
+#myBtn{
+    display: none;
+    /* display: block */
+    width: 44px;
+    height: 44px;
+    background: #D46D22;
+    position: fixed;
+    right: 10px;
+    bottom: 166px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 44px;
+    transition:all 2s;
+}
+#myBtn .icon-fangxiang{
+    text-align: center;
+    font-size: 20px;
+    padding-left: 8px;
+    font-weight: 900;
+    color: white;
+}

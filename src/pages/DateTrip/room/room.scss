@@ -1,0 +1,71 @@
+.room_room{
+  margin-top: 12px;
+  overflow: hidden;
+  padding: 0 16px;
+  margin-bottom: 20px;
+  .room-item{
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 0 8px  10px 8px;
+    .title{
+      height: 45px;
+      line-height: 45px;
+      border-bottom: 1.5px solid #e4e4e4;
+
+    }
+    .parent{
+      line-height: 40px;
+      height: 40px;
+      .parent_num{
+        border-radius: 2px;
+        width: 115px;
+        height: 30px;
+        margin-top: 5px;
+        line-height: 30px;
+        border: 1px solid #ddd;
+        float: right;
+        display: flex;
+        text-align: center;
+
+        .pre{
+          width: 34%;
+          color: #8B8386;
+          font-size: 20px;
+          background: #f8f8f8;
+          float: left;
+        }
+        .okPre{
+          background: #fff;
+        }
+        .noNext{
+          background: #f8f8f8;
+        }
+        .next{
+          width: 34%;
+          color: #4BB1F5;
+          float: left;
+        }
+        input{
+          float: left;
+          border:0;
+          width: 32%;
+          text-align: center;
+          border-left: 1px solid #ddd;
+          border-right: 1px solid #ddd;
+        }
+        .numActive{
+          background: #4BB1F5;
+          color: #fff !important;
+          height: 32px;
+          position: relative;
+          top: -1px;
+        }
+      }
+    }
+    .kid{
+      line-height: 40px;
+      height: 40px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.am-wingblank.am-wingblank-lg { touch-action: none; }
+.am-wingblank{
+    margin: 0;
+
+}
+.am-wingblank.am-wingblank-lg{
+    margin: 0;
+    position: relative;
+}
+.pages{
+    position: absolute;
+    color: #fff;
+    right: 0;
+    bottom: 0;
+    padding: 2px;
+    background: rgba(0, 0, 0, 0.55);
+
+}
+.detail_content{
+    padding: 12px;
+    background: #fff;
+    p{
+        line-height: 22px;
+        margin: 0;
+        color: #3e3e3e;
+        letter-spacing: 1px;
+        font-size: 16px;
+    }
+    span{
+        font-size: 24px;
+        color: rgb(251, 96, 93);
+        font-weight: 800;
+    }
+    em{
+        font-style: normal;
+        font-size: 12px;
+        margin-left: 12px;
+    }
+}

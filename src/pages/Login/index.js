@@ -350,7 +350,7 @@ class Login extends Component{
                         >
                         <div className="commonLogin" >
                            <input className="username" value={this.state.number} onChange={this.handleReg.bind(this)} type="text" placeholder="手机号"/>
-                           <input className="password" value={this.state.regpwd} onChange={this.handleRegpwd.bind(this)} type="text" placeholder="密码"/>
+                           <input className="password" value={this.state.regpwd} onChange={this.handleRegpwd.bind(this)} type="password" placeholder="密码"/>
                            <input className="mobileCode" type="text" value={this.state.codeNum} onChange={this.handleRegCode.bind(this)} placeholder="验证码"/>
                            {/* <div className="forget"><div className="findBtn"><span>忘记密码</span></div></div> */}
                            <div className="code"><div className="codeBtn"><span><button onClick={this.sendCode.bind(this)} disabled={this.state.isDisable}>{this.state.codeContent}</button></span></div></div>

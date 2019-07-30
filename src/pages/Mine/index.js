@@ -95,7 +95,7 @@ class Mine extends Component{
         <header className="header">
             <p><span onClick={this.goLogin}>登录/注册</span></p>
         </header>
-        <main className="main">
+        <main className="main_con">
             {/* 菜单1 */}
             <div className="m_menu1">
             {
