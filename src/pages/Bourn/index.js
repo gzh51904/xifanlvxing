@@ -60,7 +60,18 @@ class Index extends Component {
       allData:[],
       
     }
+    this.gotoHome = this.gotoHome.bind(this)
   }
+
+  // 点击返回
+  gotoHome(){
+    // let {history} = this.props
+    // console.log(this.props);
+    let {history} = this.props
+    history.push('/home')
+  }
+
+  
   // 移除main的overflow
   async componentWillMount(){
     
@@ -107,13 +118,13 @@ class Index extends Component {
   render() {
 
     let navs = this.state.navs;
-    let allData = this.state.allData;
+    // let allData = this.state.allData;
     let {url,path} = this.props.match;
 
     return (
       <div className="bourn">
         <div className="bourn-top">
-          <p>
+          <p onClick={this.gotoHome.bind(this)}>
             <i className="iconfont icon-fangxiang-xiangzuo"></i>
           </p>
           <div className="h_form bourn_form">

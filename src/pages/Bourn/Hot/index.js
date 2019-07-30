@@ -4,8 +4,19 @@ import { withRouter } from 'react-router-dom'
 import MyContext from '../context'
 
  class Index extends Component {
+    constructor(){
+        super();
+        this.gotoList = this.gotoList.bind(this)
+    }
     componentWillMount(){
         // console.log(this.props.allData);
+    }
+
+    //跳转到list
+    gotoList(category,product_type,span_city,start_city,itemType){
+        console.log(category,product_type,span_city,start_city,itemType);
+        let {history} = this.props
+        history.push('/list')
     }
     render() {
         return (
@@ -45,7 +56,9 @@ import MyContext from '../context'
                                     <ul>
                                         {
                                             cData.map((item,idx)=>{
-                                                return <li className="hot-li" key={idx}>
+                                                // console.log(item,item.product_id);
+                                                
+                                                return <li className="hot-li" key={idx} onClick={this.gotoList.bind(this,item.category,item.product_type,item.span_city,item.start_city,item.itemType)}>
                                                     <span>{item.content}</span>
                                                 </li>
                                                 
@@ -58,7 +71,7 @@ import MyContext from '../context'
                                     <ul className="hot-ul-con">
                                         {
                                             eData.map((item,idx)=>{
-                                                return <li key={idx}>
+                                                return <li key={idx} onClick={this.gotoList.bind(this,item.category,item.product_type,item.span_city,item.start_city,item.itemType)}>
                                                     <img src={item.image} alt=""/>
                                                     <p className="hot-po">{item.content}</p>
                                                     <p className="hot-pt">{item.subTitle}</p>

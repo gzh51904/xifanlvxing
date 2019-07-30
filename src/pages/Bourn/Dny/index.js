@@ -3,6 +3,11 @@ import './index.css'
 import MyContext from '../context'
 
 export default class index extends Component {
+    gotoList(category,product_type,span_city,start_city,itemType){
+        console.log(category,product_type,span_city,start_city,itemType);
+        let {history} = this.props
+        history.push('/list')
+    }
     render() {
         return (
         <MyContext.Consumer>
@@ -45,7 +50,7 @@ export default class index extends Component {
                             <ul className="hot-ul-con">
                                 {
                                     eData.map((item,idx)=>{
-                                        return <li key={idx}>
+                                        return <li key={idx} onClick={this.gotoList.bind(this,item.category,item.product_type,item.span_city,item.start_city,item.itemType)}>
                                             <img src={item.image} alt=""/>
                                             <p className="hot-po">{item.content}</p>
                                         </li>
@@ -58,7 +63,7 @@ export default class index extends Component {
                             <ul>
                                 {
                                     fData.map(item=>{
-                                        return <li key={item.name}>
+                                        return <li key={item.name} onClick={this.gotoList.bind(this,item.category,item.product_type,item.span_city,item.start_city,item.itemType)}>
                                             <span>{item.name}</span>
                                         </li>
                                     })

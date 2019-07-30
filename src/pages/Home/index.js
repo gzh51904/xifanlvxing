@@ -46,6 +46,7 @@ export default class index extends Component {
 
         this.scrollFn = this.scrollFn.bind(this);
         this.gotoDetail=  this.gotoDetail.bind(this)
+        this.gotoBourn=  this.gotoBourn.bind(this)
     }
 
     //   请求数据
@@ -200,6 +201,10 @@ export default class index extends Component {
         
         
     }
+    gotoBourn(){
+        let {history} = this.props
+        history.push('/bourn')
+    }
     gotoList(){
         let {history} = this.props
         history.push('/list')
@@ -212,7 +217,7 @@ export default class index extends Component {
     render() {
         return (
           <div ref="myHome" className="home main">
-            <div className="h_top">
+            <div className="h_top" onClick={this.gotoBourn.bind(this)}>
                 <WingBlank className="h_banner">
                     <Carousel
                     autoplay={true}
