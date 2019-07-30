@@ -2,7 +2,11 @@ import React,{Component} from 'react';
 
 import './Login.scss';
 
+import axios from 'axios';
+
 import { Tabs, WhiteSpace ,Toast} from 'antd-mobile';
+
+// import { thisExpression } from '@babel/types';
 
 class Login extends Component{
     constructor(){
@@ -15,6 +19,9 @@ class Login extends Component{
             username:'',
             password:'',
             number:'',
+            regpwd:'',
+            codeNum:'',
+            getCode:'',
             codeContent:'获取验证码',
             tabs2:[
                 { 
@@ -37,6 +44,7 @@ class Login extends Component{
         this.change=this.change.bind(this);
         this.checkedBtn=this.checkedBtn.bind(this);
         this.goBack=this.goBack.bind(this);
+        // this.getCode = this.getCode.bind(this)
     }
    componentWillMount(){
        console.log(this.props.match)
@@ -80,28 +88,171 @@ class Login extends Component{
         this.setState({
             number:e.target.value
         })
-        console.log(this.state.number)
-        console.log(this)
     }
 
-    // num(){
-    //     let {number}=this.state;
-    //     if(number===''){
-    //         console.log('不能为空')
-    //     }
-    // }
-
-    showToastNoMask() {
-
-        Toast.info('不能为空', 2, null, false);
+    handleRegpwd(e){
+        this.setState({
+        regpwd:e.target.value
+        })
     }
 
+    handleLogin(e){
+        this.setState({
+            username:e.target.value
+        })
+    }
 
-          
-    render(){
-        let timer;
-        let time=this.state.time;
-        const getCode=()=>{
+    handleLogPwd(e){
+        this.setState({
+        password:e.target.value
+        })
+    }
+    //验证码
+    handleRegCode(e){
+        this.setState({
+            codeNum:e.target.value
+        })
+    }
+    //登录按钮
+    login(){
+        let {username,password}=this.state;
+        let isok=false;
+        let isok2=false;
+
+        
+        
+        if(password===''){
+            // Toast.info('密码不能为空',2,null,false);
+            isok=false
+        }else{
+            isok=true
+        }
+
+        if(username===''){
+            // Toast.info('用户名不能为空',2,null,false);
+            isok2=false
+        }else{
+            isok2=true
+        }
+
+        if(isok&&isok2){
+            if(localStorage.getItem('username')){
+                Toast.info('请先退出账号！',2,null,false);
+            }else{
+                 // Toast.info('登录成功', 2, null, false);
+                axios.get('http://localhost:4000/login',{
+                    params:{
+                        username,
+                        password
+                    }
+                }).then(({data})=>{
+                    // console.log(data)
+                    if(data.code===250){
+                        Toast.info('用户名或密码错误！',2,null,false);
+                    }else{
+                        localStorage.setItem('username',username);
+                        this.props.history.replace('/home');
+                    }
+                })
+            }
+
+        }else{
+            Toast.info('请完善信息', 2, null, false);
+        }
+        console.log(isok,isok2);
+        
+
+    }
+
+    
+    //注册按钮
+    showToastNoMask(){
+        let {number,regpwd,codeNum,getCode}=this.state;
+        console.log(number,regpwd,codeNum,getCode);
+        let isok=false;
+        let isok1=false;
+        let isok2=false;
+
+        if((codeNum*1)==getCode&&codeNum!==''){
+            isok2=true;
+        }else{
+            Toast.info('请填验证码', 2, null, false);
+            isok2=false;
+        } 
+        if(regpwd){
+            // console.log(2)
+            let xnumber=/^\w{6}$/;
+            if(!xnumber.test(regpwd)){
+                Toast.info('密码不小于6位的字母、数字和下划线', 2, null, false);
+                isok=false
+            }else{
+                isok=true
+            }
+        }else{
+            Toast.info('请填密码', 2, null, false);
+        }
+
+        if(number){
+            // console.log(1)
+            let xnumber= /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+            if(!xnumber.test(number)){
+                Toast.info('手机格式不符', 2, null, false);
+                isok1=false
+            }else{
+                isok1=true
+            }
+        }else{
+            Toast.info('请填号码', 2, null, false);
+        }
+        if(isok&&isok1&&isok2){
+            // console.log(isok,isok1,isok2)
+            axios.get('http://localhost:4000/reg/check',{
+                params:{
+                    number
+                }
+            }).then(({data})=>{
+                console.log(data)
+                if(data.code===250){
+                    console.log(1)
+                    Toast.info('该用户已注册', 2, null, false);
+                }else{
+                    // Toast.info('可以注册', 2, null, false);
+                    axios.post('http://localhost:4000/reg',{
+                        number,
+                        regpwd,
+                    }).then(({data})=>{
+                        console.log(data);
+                        if(data.code===1000){
+                            console.log(this.props.history)
+                            this.props.history.replace('/home');
+                        }
+                    })
+                }
+            })
+        }else{
+            // Toast.info('请完善信息', 2, null, false);
+        }
+        
+        console.log(isok,isok1,isok2)  
+    }
+
+    //点击获取验证码,并倒计时
+    sendCode(e){
+        let {number}=this.state;
+        if(number===''){
+            Toast.info('请填手机号')
+            return
+        }else{
+            e.isDefaultPrevented()
+        // e.stopPropagation()
+        console.log(e.target)
+        this.setState({
+            isDisable:true,
+            codeContent:'60s'
+        })
+        let timer=setInterval(()=>{
+            // console.log(1)
+            let time=this.state.time;
             if(time>0){
                 time=time-1;
                 this.setState({
@@ -110,6 +261,7 @@ class Login extends Component{
                 })
                 // console.log(this.state.time);
             }else{
+                // let timer = '';
                 clearInterval(timer);
                 this.setState({
                     isDisable:false,
@@ -117,16 +269,29 @@ class Login extends Component{
                     codeContent:'获取验证码'
                 })
             }
-        }
-        //点击获取验证码,并倒计时
-        const sendCode=()=>{
+        },1000)
+        axios.get('http://localhost:4000/code',{
+            params:{
+                number
+            }
+        }).then(({data})=>{
+            console.log(data);
             this.setState({
-                isDisable:true,
-                codeContent:'60s'
+                getCode:data
             })
-            timer=setInterval(getCode,1000)
+            setTimeout(()=>{
+                this.setState({
+                    getCode:''
+                })
+            },60*1000)
+            console.log(this.state.getCode);
+            
+        })
         }
-        
+    }
+          
+    render(){
+        // console.log(this.state.yz)
         let {tabs2,tabs3}=this.state;
         return<div className="Login">
             <header>
@@ -151,18 +316,18 @@ class Login extends Component{
                         renderTab={tab => <span>{tab.title}</span>}
                         >
                         <div className="commonLogin" >
-                           <input className="username" text="text" placeholder="用户名/邮箱"/>
-                           <input className="password" text="text" placeholder="登录密码"/>
+                           <input className="username" value={this.state.username} onChange={this.handleLogin.bind(this)} type="text" placeholder="用户名/邮箱"/>
+                           <input className="password" value={this.state.password} onChange={this.handleLogPwd.bind(this)} type="password" placeholder="登录密码"/>
                            <div className="forget"><div className="findBtn"><span>忘记密码</span></div></div>
                         </div>
                         <div className="commonLogin">
-                           <input className="logMobile" text="text" placeholder="手机号"/>
-                           <input className="mobileCode" text="text" placeholder="验证码"/>
+                           <input className="logMobile" type="text" placeholder="手机号"/>
+                           <input className="mobileCode" type="text" placeholder="验证码"/>
                            <div className="code"><div className="codeBtn"><span>{this.state.codeContent}</span></div></div>
                         </div>
                         </Tabs>
                         <WhiteSpace />
-                        <input type="submit" className="loginBtn" value="登录"/>
+                        <input type="button" onClick={this.login.bind(this)} className="loginBtn" value="登录"/>
                         </form>
                     </div>
 
@@ -184,21 +349,21 @@ class Login extends Component{
                         renderTab={tab => <span>{tab.title}</span>}
                         >
                         <div className="commonLogin" >
-                           <input className="username" value={this.state.number} onChange={this.handleReg.bind(this)} text="text" placeholder="手机号"/>
-                           <input className="password" text="text" placeholder="登录密码"/>
-                           <input className="mobileCode" text="text" placeholder="验证码"/>
+                           <input className="username" value={this.state.number} onChange={this.handleReg.bind(this)} type="text" placeholder="手机号"/>
+                           <input className="password" value={this.state.regpwd} onChange={this.handleRegpwd.bind(this)} type="text" placeholder="密码"/>
+                           <input className="mobileCode" type="text" value={this.state.codeNum} onChange={this.handleRegCode.bind(this)} placeholder="验证码"/>
                            {/* <div className="forget"><div className="findBtn"><span>忘记密码</span></div></div> */}
-                           <div className="code"><div className="codeBtn"><span><button onClick={sendCode} disabled={this.state.isDisable}>{this.state.codeContent}</button></span></div></div>
+                           <div className="code"><div className="codeBtn"><span><button onClick={this.sendCode.bind(this)} disabled={this.state.isDisable}>{this.state.codeContent}</button></span></div></div>
                         </div>
                         <div className="commonLogin">
-                           <input className="logMobile"  text="text" placeholder="邮箱"/>
-                           <input className="password" text="text" placeholder="登录密码"/>
-                           <input className="mobileCode" text="text" placeholder="验证码"/>
+                           <input className="logMobile"  type="text" placeholder="邮箱"/>
+                           <input className="password" type="password" placeholder="密码"/>
+                           <input className="mobileCode" type="text" placeholder="验证码"/>
                            <div className="code"><div className="codeBtn"><span>获取验证码</span></div></div>
                         </div>
                         </Tabs>
                         <WhiteSpace />
-                        <input type="button" className="loginBtn" onClick={this.showToastNoMask} value="注册"/>
+                        <input type="button" className="loginBtn" onClick={this.showToastNoMask.bind(this)} value="注册"/>
                         </form>
                     </div>
 
