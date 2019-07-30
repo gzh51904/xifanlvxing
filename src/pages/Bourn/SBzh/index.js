@@ -13,7 +13,7 @@ export default class index extends Component {
         <MyContext.Consumer>
             {
                 ({data})=>{
-                    let aData = data.slice(8,9).map(item=>item.dataArray)
+                    let aData = data.slice(7,8).map(item=>item.dataArray)
                     //名称
                     let bData = []
                     aData.map(item=>{return bData = item})

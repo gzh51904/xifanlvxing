@@ -8,6 +8,7 @@ export default class index extends Component {
     constructor(){
         super();
         this.state = {
+            gg:function(){},
             data: [],
             lazyDatas:[],
             page: { num:1},
@@ -92,7 +93,10 @@ export default class index extends Component {
         
         
     }
-
+    componentWillUnmount(){
+        let main = document.getElementsByClassName('main')[0];
+        main.addEventListener("scroll", this.scrollFn, false);
+    }
 
     // 滑动事件函数，实现懒加载
     scrollFn() {
@@ -148,45 +152,46 @@ export default class index extends Component {
         }
 
         // 存储好第四张图片到顶部距离
+        if(this.state.page){
         if(this.state.page.num === 1){
             var aImageTop = aImage[ this.state.page.num * 6 -2 ] ?
                 aImage[ this.state.page.num * 6 -2 ].offsetTop : ''
             this.setState(this.state.aImageHeight = {num : aImageTop})
 
         }
-        
-        
-        if(this.state.aImageHeight.num <  height + scrollTop && this.state.send.bole){
-            this.setState( 
-                this.state.send = {bole : false} //记得改变this的指向
-            )                                    //第一次满足条件后，改为 false，下次，判断条件不条件就不再跑这个
-
-
-            let page = this.state.page.num + 1;
-            this.setState(this.state.page = { num: page });
-            
-
-
-            axios.get('https://m.tourscool.com/api/index/topsales',{
-                params:{
-                    t: 1564066256,
-                    page: this.state.page.num
-                }
-            }).then((datas)=>{
-                // console.log("2",datas.data.data);
-                let db = datas.data.data;
-                this.setState(
-                    this.state.lazyDatas = [...this.state.lazyDatas,...db],()=>{
-
-                        let aImageTop = aImage[ this.state.page.num * 6 - 2 ].offsetTop;
-                        this.setState(this.state.aImageHeight = {num : aImageTop})
-                    }
-                )
+    }
+        if(this.state.aImageHeight.num){
+            if(this.state.aImageHeight.num <  height + scrollTop && this.state.send.bole){
                 this.setState( 
-                    this.state.send = {bole : true} //记得改变this的指向
-                )                                   //第一次满足条件后，改为 true，满足if条件
-            })
+                    this.state.send = {bole : false} //记得改变this的指向
+                )                                    //第一次满足条件后，改为 false，下次，判断条件不条件就不再跑这个
+    
+                let page = this.state.page.num + 1;
+                this.setState(this.state.page = { num: page });
+                
+                axios.get('https://m.tourscool.com/api/index/topsales',{
+                    params:{
+                        t: 1564066256,
+                        page: this.state.page.num
+                    }
+                }).then((datas)=>{
+                    // console.log("2",datas.data.data);
+                    let db = datas.data.data;
+                    this.setState(
+                        this.state.lazyDatas = [...this.state.lazyDatas,...db],()=>{
+    
+                            let aImageTop = aImage[ this.state.page.num * 6 - 2 ].offsetTop;
+                            this.setState(this.state.aImageHeight = {num : aImageTop})
+                        }
+                    )
+                    this.setState( 
+                        this.state.send = {bole : true} //记得改变this的指向
+                    )                                   //第一次满足条件后，改为 true，满足if条件
+                })
+            }
         }
+        
+        
         }.bind(this))
     }
     
@@ -324,7 +329,7 @@ export default class index extends Component {
                         <ul>
                             {
                                 this.state.bourns.map(item=>{
-                                    return <li key={item.name}>
+                                    return <li key={item.name} onClick={this.gotoList.bind(this)}>
                                         <img src={item.imgurl} alt=""/>
                                         <span>{item.name}</span>
                                     </li>

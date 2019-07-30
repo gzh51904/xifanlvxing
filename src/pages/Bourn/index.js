@@ -83,7 +83,6 @@ class Index extends Component {
       
     }.bind(this))
 
-      
     await axios.get('https://www.easy-mock.com/mock/5d3e90a9c07d166c1c4eed4a/example/query',
     {}).then((datas)=>{
         // console.log(datas.data.data);
@@ -94,10 +93,20 @@ class Index extends Component {
         console.log(error);
     })
 
+    // 可视区高度
+    let height = document.documentElement.clientHeight;
+    // 或许头部和底部的高度
+    let top = document.querySelector(".bourn-top").clientHeight;
+    let footer = document.querySelector('.footer').clientHeight;
+    let bournF = document.querySelector(".bourn-footer-right");
+    let scrolHeight = height - top -footer;
+    bournF.style.height = scrolHeight + "px";
+    
      // 第一个高亮
      let ul = document.querySelector('.bourn-footer-left-ul');
      let lis = ul.getElementsByTagName('li');
      lis[0].style.background = "#fff"
+
   }
 
   //移除main的overflow

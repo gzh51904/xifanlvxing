@@ -83,7 +83,7 @@ import MyContext from '../context'
                                 </div>
                                 <div className="hot-mudidi">
                                     <h4 className="hot-h2">热门目的地</h4>
-                                    {/* <ul className="hot-ul-con">
+                                    <ul className="hot-ul-con">
                                         {
                                             fData.map((item,idx)=>{
                                                 return <li key={idx}>
@@ -93,7 +93,7 @@ import MyContext from '../context'
                                             })
                                         }
                                         
-                                    </ul> */}
+                                    </ul>
                                 </div>
                             </div>
                         }

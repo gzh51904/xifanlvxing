@@ -16,12 +16,23 @@ class Consult extends Component{
              footer.style.display='none';
          }
     }.bind(this))
+
+    setTimeout(function(){
+      let main = document.querySelector('.main');
+      if(this.props.match.path === '/consult'){
+        main.style.overflow = "visible"
+      }
+      
+    }.bind(this))
     
 }
 
 componentWillUnmount(){
     const footer=document.getElementsByClassName('footer')[0];
     footer.style.display='block';
+
+    let main = document.querySelector('.main')
+    main.style.overflow = "auto"
 }
 
 goBack(){
