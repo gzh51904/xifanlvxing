@@ -128,6 +128,8 @@ class room extends React.Component{
         if (price.length >= 7) {
             //添加，
             ok = '￥' + price.slice(0,price.length-6)+','+price.slice(-6)
+        }else{
+            ok = '￥' + price
         }
         //把计算好的价格保存到全局
         store.dispatch({type:'price',payload:ok})

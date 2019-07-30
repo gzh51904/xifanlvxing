@@ -84,6 +84,9 @@ class  outline extends React.Component{
             let isok = true
 
             window.onscroll = function (e) {
+                if(sd_item[num]){
+
+
                 if (this.scrollY >= sd_item[num].offsetTop - 95) {
                     if (istrue){
                         istrue = false
@@ -116,7 +119,7 @@ class  outline extends React.Component{
 
 
                 }
-
+                }
                 if (parseInt(this.scrollY)>=sy){
                     getnav.setAttribute('class','fixed')
                     preout.style.display = 'block'

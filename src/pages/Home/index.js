@@ -91,7 +91,10 @@ export default class index extends Component {
         
         
     }
-
+    componentWillUnmount() {
+        let main = document.getElementsByClassName('main')[0];
+        main.addEventListener("scroll", this.scrollFn, false);
+    }
 
     // 滑动事件函数，实现懒加载
     scrollFn() {

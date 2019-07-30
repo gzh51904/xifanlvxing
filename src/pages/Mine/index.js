@@ -91,7 +91,8 @@ class Mine extends Component{
     }
     render(){
         let {navs,nav2,nav3}=this.state;
-        return<div className="content">
+        return <div className="mine-box">
+        <div className="content">
         <header className="header">
             <p><span onClick={this.goLogin}>登录/注册</span></p>
         </header>
@@ -136,6 +137,7 @@ class Mine extends Component{
             <Route path='./login' component={Login}></Route>
         </Switch> */}
     </div>
+        </div>
     }
    
 }

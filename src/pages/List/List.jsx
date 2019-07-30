@@ -2,22 +2,44 @@
 import React from 'react'
 import './List.scss'
 import {Icon, NavBar} from "antd-mobile";
+import $axios from 'axios'
 
 class List extends React.Component{
     constructor(){
         super()
         this.state={
+            data:'',
             num:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
             navs:['稀饭推荐','当地跟团','当地玩乐','邮轮','精品小团'],
             select:'0'
         }
         this.select = this.select.bind(this)
+        this.gotoDetail = this.gotoDetail.bind(this)
     }
     select(index){
         this.setState({
             select:index
         })
     }
+    gotoDetail(id){
+        this.props.history.push({
+            pathname:'detail',
+            search:'?'+id
+        })
+    }
+    componentWillMount() {
+        $axios.get('https://m.tourscool.com/api/products',{
+
+        }).then(({data:{data}})=>{
+
+                this.setState({
+                    data
+                })
+
+            console.log(this.state.data)
+        })
+    }
+
     render() {
         return <div className="list-box">
             {/*头部*/}
@@ -25,7 +47,7 @@ class List extends React.Component{
                 <NavBar
                     mode="light"
                     icon={<Icon type="left" />}
-                    onLeftClick
+                    onLeftClick={()=>{this.props.history.push('home')}}
                     rightContent={[
                         <Icon key="1" type="ellipsis" />,
                     ]}
@@ -47,14 +69,15 @@ class List extends React.Component{
             <div>
                 <ul>
                     {
-                        this.state.num.map(item=>{
-                            return <li className="list" key={Date.now()*Math.random()}>
+                        this.state.data?
+                        this.state.data.map(item=>{
+                            return <li className="list" key={Date.now()*Math.random()} onClick={this.gotoDetail.bind(this,item.product_id)}>
                                 <div className="imgbox">
-                                    <img src="img/list.png" alt=""/>
+                                    <img src={item.image} alt=""/>
                                 </div>
-                                <div className="content">
+                                <div className="list-content">
                                     <div className="title">
-                                        （6天）迈阿密+巴哈马自由港享受之旅【迈阿密、沼泽公园、南海滩、西礁岛、七英里跨海大桥、海明威故居、西棕榈滩、邮轮码头】
+                                        {item.name}
                                     </div>
                                     <div className="tag">
                                         <ul>
@@ -64,15 +87,15 @@ class List extends React.Component{
                                         </ul>
                                     </div>
                                     <div className="price">
-                                        <em>￥4,222</em><span>/起</span>
+                                        <em>{item.default_price}</em><span>/起</span>
                                     </div>
                                     <div className="people">
-                                        <span>5.0分</span>
-                                        <span>0人出行</span>
+                                        <span>{item.comment_score}</span>
+                                        <span>{item.sales}人出行</span>
                                     </div>
                                 </div>
                             </li>
-                        })
+                        }):''
                     }
                 </ul>
             </div>
